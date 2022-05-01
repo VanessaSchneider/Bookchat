@@ -68,10 +68,3 @@ class UsersController < ApplicationController
   
 
 
-
-
-
-
-
-
-end

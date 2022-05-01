@@ -1,8 +1,9 @@
-import Login from './components/Login.js'
+import Login from './Login.js'
 // import MyProfile from './components/MyProfile.js';
 import { useState, useEffect } from 'react';
-import Signup from './components/Signup';
-import Logout from './components/Logout.js';
+import Signup from './Signup';
+import Logout from './Logout.js';
+import MyProfile from './MyProfile.js'
 // import SwipePage from './components/SwipePage.js';
 // import NavBar from './components/NavBar.js';
 // import Matches from './components/Matches.js';
@@ -11,13 +12,12 @@ import { Route, Switch, useHistory } from "react-router-dom";
 function App() {
   const [user, setUser] = useState(null);
   const [profiles, setProfiles] = useState(null);
-  const [matches, setMatches] = useState([])
   const history = useHistory();
 
-  const handleReroute = () => {
-    console.log("Reroute!")
-    history.push("/");
-    }
+  // const handleReroute = () => {
+  //   console.log("Reroute!")
+  //   history.push("/");
+  //   }
 
   useEffect(() => {
     fetch("/me").then((response) => {
@@ -53,7 +53,7 @@ function App() {
     fetch("/logout", {
         method: "DELETE",
         }).then(() => setUser())
-        .then(()=>handleReroute())
+        // .then(()=>handleReroute())
       }
 
   function handleDeleteProfile() {
@@ -66,9 +66,9 @@ function App() {
 
   return (
     
-    <div className="App">
-      <div className="sidenav" >
-        <div className="sidenav-content">
+    <div>
+      <div >
+        <div>
       {user ? null : <Signup onLogin={setUser} login={login} /> }
       <nav className="nav-container">
       {user ? <Logout handleLogout={handleLogout}/> : <Login onLogin={setUser}/> }
@@ -78,11 +78,10 @@ function App() {
       <Switch>
       <Route exact path="/">
         <div style={{width: "30rem"}}>
-      <h1 className="welcomeBanner">{welcome}</h1>
+      <h1 className="welcomeBanner">Welcome</h1>
       </div>
-      {(user && profiles) ? <SwipePage getMatches={getMatches} setMatches={setMatches} setUser={setUser} handleDeleteUser={handleDeleteUser} profiles={profiles} setProfiles={setProfiles} user={user}/> : null}
       </Route>
-      <Route exact path="/myProfile">
+      <Route exact path="/MyProfile">
         <MyProfile user={user} setUser={setUser} handleDeleteProfile={handleDeleteProfile} />
       </Route>
       </Switch>
