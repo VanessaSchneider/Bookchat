@@ -54,6 +54,13 @@ function App() {
     setPosts([...posts, newPost])
  }
 
+
+ useEffect(() => {
+  fetch("/posts")
+.then((res) => res.json())
+.then((data) => setPosts(data))}, 
+[])
+
   function handleLogout() {
     fetch("/logout", {
         method: "DELETE",
@@ -86,7 +93,7 @@ function App() {
       <h1 className="welcomeBanner">Welcome</h1>
       </div>
       {user ? <MakePost handleAddPost={handleAddPost} user={user} setUser={setUser} /> : null}
-      {user ? <FeedPage user={user} setUser={setUser} /> : null}
+      {user ? <FeedPage user={user} setUser={setUser} posts={posts} /> : null}
       </Route>
       <Route exact path="/MyProfile">
         <MyProfile user={user} setUser={setUser} handleDeleteProfile={handleDeleteProfile} />

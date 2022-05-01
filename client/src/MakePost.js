@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-function MakePost({handleAddPost, login}) {
+function MakePost({handleAddPost}) {
   const [content, setContent] = useState("");
   const [makePostIsHidden, setMakePostIsHidden] = useState(false)
   const [user, setUser] =useState("")

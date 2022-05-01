@@ -1,22 +1,16 @@
 import { useEffect, useState } from "react";
-function FeedPage(){
+function FeedPage({posts}){
 
-    const [posts, setPosts]=useState([])
 
-    useEffect(() => {
-              fetch("/posts")
-          .then((res) => res.json())
-          .then((data) => setPosts(data))}, 
-          [])
 
           console.log("posts",posts)
 
           let post = []
-          post = posts.map(post => <p>
+          if (posts && posts.length!==0) {post = posts.map(post => <p>
               {post.content}
               {post.user_id}
 
-          </p>)
+          </p>)}
             
 
      
