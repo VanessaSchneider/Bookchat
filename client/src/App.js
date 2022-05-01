@@ -8,6 +8,7 @@ import MyProfile from './MyProfile.js'
 // import NavBar from './components/NavBar.js';
 // import Matches from './components/Matches.js';
 import { Route, Switch, useHistory } from "react-router-dom";
+import FeedPage from './FeedPage.js'
 
 function App() {
   const [user, setUser] = useState(null);
@@ -77,9 +78,10 @@ function App() {
        </div>
       <Switch>
       <Route exact path="/">
-        <div style={{width: "30rem"}}>
+        <div>
       <h1 className="welcomeBanner">Welcome</h1>
       </div>
+      {user ? <FeedPage user={user} setUser={setUser} /> : null}
       </Route>
       <Route exact path="/MyProfile">
         <MyProfile user={user} setUser={setUser} handleDeleteProfile={handleDeleteProfile} />
