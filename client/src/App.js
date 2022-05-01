@@ -11,7 +11,7 @@ import MakePost from './MakePost.js'
 
 function App() {
   const [user, setUser] = useState(null);
-  const [post, setPost] = useState(null);
+  const [posts, setPosts] = useState([]);
   const history = useHistory();
   
 
@@ -51,7 +51,7 @@ function App() {
   }
 
   function handleAddPost(newPost){
-    setPost([...post, newPost])
+    setPosts([...posts, newPost])
  }
 
   function handleLogout() {

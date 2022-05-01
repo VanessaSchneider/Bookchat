@@ -15,6 +15,8 @@ function MakePost({handleAddPost, login}) {
   }, []);
 
 
+  console.log(user)
+
 
 
   function handlePost(event) {
@@ -26,8 +28,7 @@ function MakePost({handleAddPost, login}) {
     e.preventDefault();
       const formData = {
          content: content,
-         user_id: user.user_id,
-        //  is_click: false
+         user_id: user.id,
         };
 
 
