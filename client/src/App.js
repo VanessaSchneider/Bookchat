@@ -7,11 +7,13 @@ import MyProfile from './MyProfile.js'
 // import NavBar from './components/NavBar.js';
 import { Route, Switch, useHistory } from "react-router-dom";
 import FeedPage from './FeedPage.js'
+import MakePost from './MakePost.js'
 
 function App() {
   const [user, setUser] = useState(null);
-  const [profiles, setProfiles] = useState(null);
+  const [post, setPost] = useState(null);
   const history = useHistory();
+  
 
   // const handleReroute = () => {
   //   console.log("Reroute!")
@@ -48,6 +50,10 @@ function App() {
     setProfiles(updatedUsers)
   }
 
+  function handleAddPost(newPost){
+    setPost([...post, newPost])
+ }
+
   function handleLogout() {
     fetch("/logout", {
         method: "DELETE",
@@ -79,6 +85,7 @@ function App() {
         <div>
       <h1 className="welcomeBanner">Welcome</h1>
       </div>
+      {user ? <MakePost handleAddPost={handleAddPost} user={user} setUser={setUser} /> : null}
       {user ? <FeedPage user={user} setUser={setUser} /> : null}
       </Route>
       <Route exact path="/MyProfile">
