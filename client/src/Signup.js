@@ -56,28 +56,28 @@ function Signup({ login }) {
     const signupBox = (
       <div>
           <form onSubmit={handleSignup}>
-            <div className="mb-3">
+            <div>
               <input type ="text" value={username} onChange={(e) => setUsername(e.target.value)} placeholder="username"/>
               </div>
-              <div className="mb-3">
+              <div>
               <input type ="text"  value={password} onChange={(e) => setPassword(e.target.value)} placeholder="password"/>
               </div>
-              <div className="mb-3">
+              <div>
               <input type ="text"  value={passwordConfirmation} onChange={(e) => setPasswordConfirmation(e.target.value)} placeholder="password confirmation"/>
               </div>
-              <div className="mb-3">
+              <div>
               <input type ="text"  value={age} onChange={(e) => setAge(e.target.value)} placeholder="age"/>
               </div>
-              <div className="mb-3">
+              <div>
               <input type ="text"  value={email} onChange={(e) => setEmail(e.target.value)} placeholder="email"/>
               </div>
-              <div className="mb-3">
+              <div>
               <input type ="text"  value={photo} onChange={(e) => setPhoto(e.target.value)} placeholder="photo"/>
               </div>
-              <div className="mb-3">
+              <div>
               <input type ="text"  value={bio} onChange={(e) => setBio(e.target.value)} placeholder="bio"/>
               </div>
-              <div className="mb-3">
+              <div>
               <input type = "submit" className="btn btn-outline-light"></input>
               </div>
            
