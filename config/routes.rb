@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
   
+  resources :shows
+  resources :comments
+  resources :posts
   resources :sessions
   resources :users
 

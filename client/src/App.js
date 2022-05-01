@@ -4,9 +4,7 @@ import { useState, useEffect } from 'react';
 import Signup from './Signup';
 import Logout from './Logout.js';
 import MyProfile from './MyProfile.js'
-// import SwipePage from './components/SwipePage.js';
 // import NavBar from './components/NavBar.js';
-// import Matches from './components/Matches.js';
 import { Route, Switch, useHistory } from "react-router-dom";
 import FeedPage from './FeedPage.js'
 
