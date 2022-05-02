@@ -8,6 +8,7 @@ Rails.application.routes.draw do
 
 
 post '/search' ,to: "shows#search"
+post '/getshow' ,to: "shows#getshow"
 
 
   post "/signup", to: "users#create"

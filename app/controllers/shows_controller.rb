@@ -12,6 +12,8 @@ class ShowsController < ApplicationController
     end
 
 
+
+
     def search
         show = Show.find_by!(name: params[:name])
           if show.valid?
