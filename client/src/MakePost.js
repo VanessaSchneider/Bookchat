@@ -2,7 +2,8 @@ import { useEffect, useState } from 'react'
 
 function MakePost ({ handleAddPost }) {
   const [content, setContent] = useState('')
-  const [makePostIsHidden, setMakePostIsHidden] = useState(false)
+  const [makeFirstPostIsHidden, setMakeFirstPostIsHidden] = useState(false)
+  const [makeSecondPostHidden, setMakeSecondPostHidden] = useState(false)
   const [user, setUser] = useState('')
   const [show, setShow] = useState('')
   const [search, setSearch] = useState('')
@@ -39,6 +40,7 @@ function MakePost ({ handleAddPost }) {
     })
       .then(r => r.json())
       .then(show => setShow(show))
+      setMakeSecondPostHidden((makeSecondPostHidden)=>!makeSecondPostHidden)
   }
 
   console.log("showname", show.name)
@@ -66,27 +68,27 @@ function MakePost ({ handleAddPost }) {
   }
 
   function handleWritePostClick () {
-    setMakePostIsHidden(makePostIsHidden => !makePostIsHidden)
+    setMakeFirstPostIsHidden(makeFirstPostIsHidden => !makeFirstPostIsHidden)
   }
 
   return (
     <>
-      {makePostIsHidden ? (
+      {makeFirstPostIsHidden ? 
         <div>
           <form onSubmit={handleSearch}>
             <input
               className='post-size'
               type='text'
-              placeholder='Search for a show'
+              placeholder='First search for the show'
               onChange={handleShow}
               value={search}
             />
             <button className='button' type='submit'>
               Submit
             </button>
-          </form>
+          </form> </div>: null}
 
-          <form onSubmit={handleSubmit}>
+          {makeSecondPostHidden ? <form onSubmit={handleSubmit}>
             <input
               className='post-size'
               type='text'
@@ -98,11 +100,10 @@ function MakePost ({ handleAddPost }) {
               Submit
             </button>
           </form>
-        </div>
-      ) : null}
+        :null}
       <button className='button' onClick={handleWritePostClick}>
         {' '}
-        {makePostIsHidden ? 'Hide Post Field' : 'Write a Post'}{' '}
+        {makeFirstPostIsHidden ? 'Hide Post Field' : 'Write a Post'}{' '}
       </button>
     </>
   )
