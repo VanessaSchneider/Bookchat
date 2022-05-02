@@ -27,14 +27,14 @@ console.log(show.posts)
 
 let post = []
 if (show.posts && show.posts.length !==0){post =
-show.posts.map((post)=> <div>
+show.posts.map((post)=> <div> <div className = "post-container">
 
     {post.content}
-    <br></br>
+    </div>
    
   
   
-
+    <div className = "post-container">
     <Link
         to={`/users/${post.username}`}
         >
@@ -42,8 +42,8 @@ show.posts.map((post)=> <div>
         </Link>
 
 
-
-
+        </div>
+<br></br>
 </div>
 )}
 
@@ -53,7 +53,7 @@ return (
 
 
 <div>
-<div className = "user-feed-container">
+<div className = "post-container">
 
 {show.name}
 </div>

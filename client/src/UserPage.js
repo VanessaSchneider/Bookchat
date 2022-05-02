@@ -25,35 +25,40 @@ useEffect(() => {
 
 let post = []
 if (user.posts && user.posts.length !==0) {
-post = user.posts.map((post)=><div>
+post = user.posts.map((post)=><div><div className = "post-container" >
 <Link
         to={`/shows/${post.show_name}`}
         >
               #{post.show_name}
         </Link>
-<br></br>
+        </div>
+        <div className = "post-container" >
 
     {post.content}
 
-
-    
+    <br></br>
+    </div>
 </div>)
 }
 
 
 return (
 <div>
-    <div className = "user-feed-container">
+    <div className = "post-container">
         <img className = "user-feed-image" src = {user.photo}></img>
         <div></div>
         {user.username}
         <br></br>
         {user.bio}
         </div>
+        <br>
+        </br>
+     
         <div className = "post-container">
          {post} 
          </div> 
-
+        
+<br></br>
 
     </div>
 )
