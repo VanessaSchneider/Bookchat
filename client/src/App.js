@@ -95,6 +95,11 @@ useEffect(() => {
       {user ? null : <Signup onLogin={setUser} login={login} /> }
       <nav className="nav-container">
       {user ? <Logout handleLogout={handleLogout}/> : <Login onLogin={setUser}/> }
+      {user ? <Link to="/">
+    <button >Home</button>
+    </Link>: null}
+      
+    
        </nav> 
         </div>
        </div>

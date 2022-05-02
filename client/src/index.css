@@ -7,9 +7,8 @@ border-radius: 100%;}
 .post-container {
   background-color: white;
   border-radius: 1em;
-  padding: 25px;
   display: grid;
-  gap: 10px;
+  gap: 5px;
   justify-content: center;
 
 }
