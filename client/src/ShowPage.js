@@ -1,6 +1,7 @@
 
 import { useParams } from "react-router-dom"
 import { useState, useEffect } from 'react';
+import { Link } from "react-router-dom";
 
 function ShowPage(){
     const { name}  = useParams();
@@ -27,8 +28,21 @@ console.log(show.posts)
 let post = []
 if (show.posts && show.posts.length !==0){post =
 show.posts.map((post)=> <div>
+
     {post.content}
-    {post.username}
+   
+  
+  
+
+    <Link
+        to={`/users/${post.username}`}
+        >
+              {post.username}
+        </Link>
+
+
+
+
 </div>
 )}
 
@@ -36,8 +50,12 @@ show.posts.map((post)=> <div>
 
 return (
 
+
+
     <div>
-       {show.name}
+
+{show.name}
+
        {post}
 
     </div>

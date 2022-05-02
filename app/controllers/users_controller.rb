@@ -45,6 +45,17 @@ class UsersController < ApplicationController
           user.destroy
           head :no_content
       end
+
+
+      def getuser
+        user = User.find_by!(username: params[:username])
+          if user.valid?
+          render json: user, status: :ok
+          else 
+          render json: { errors: show.errors.full_messages }, status: :unprocessable_entity
+          end
+        end
+
   
       private
   

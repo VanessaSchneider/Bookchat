@@ -41,13 +41,16 @@ function MakePost ({ handleAddPost }) {
       .then(show => setShow(show))
   }
 
+  console.log("showname", show.name)
+
   function handleSubmit (e) {
     e.preventDefault()
     const formData = {
       content: content,
       show_id: show.id,
       user_id: user.id,
-      username: user.username
+      username: user.username,
+      show_name: show.name,
     }
 
     console.log(formData)
