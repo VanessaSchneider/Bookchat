@@ -9,6 +9,7 @@ import { Route, Switch, useHistory, Link } from "react-router-dom";
 import FeedPage from './FeedPage.js'
 import MakePost from './MakePost.js'
 import UserPage from './UserPage';
+import ShowPage from './ShowPage';
 
 function App() {
   const [user, setUser] = useState(null);
@@ -110,6 +111,9 @@ useEffect(() => {
       </Route>
       <Route exact path={`/users/:username`} >
               <UserPage users={users}/>
+            </Route>
+            <Route exact path={`/shows/:name`} >
+              <ShowPage users={users}/>
             </Route>
 
       </Switch>

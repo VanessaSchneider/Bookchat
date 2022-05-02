@@ -26,8 +26,15 @@ function FeedPage({posts, users}){
              <br></br>
               {post.content}
               <br></br>
-            {post.show.name}
-             
+
+              <Link
+        to={`/shows/${post.show.name}`}
+        >
+              {post.show.name}
+        </Link>
+
+
+           
            
         
            
