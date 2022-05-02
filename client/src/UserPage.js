@@ -46,19 +46,21 @@ return (
 <div>
     <div className = "post-container">
         <img className = "user-feed-image" src = {user.photo}></img>
-        <div></div>
+       </div>
+       <div className = "post-container">
         {user.username}
-        <br></br>
+        </div>
+        <div className = "post-container">
         {user.bio}
         </div>
         <br>
         </br>
      
-        <div className = "post-container">
+        <div className = "post-container-plus">
          {post} 
          </div> 
         
-<br></br>
+
 
     </div>
 )

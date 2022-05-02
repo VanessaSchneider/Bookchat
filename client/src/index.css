@@ -12,6 +12,15 @@ border-radius: 100%;}
 
 }
 
+.post-container-plus {
+  background-color: white;
+  border-radius: 1em;
+  display: grid;
+  justify-content: center;
+  gap: 13px;
+
+}
+
 
 .post-size{
 min-width:  50%;

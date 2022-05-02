@@ -28,19 +28,17 @@ console.log(show.posts)
 let post = []
 if (show.posts && show.posts.length !==0){post =
 show.posts.map((post)=> <div> <div className = "post-container">
-
-    {post.content}
+ <Link
+        to={`/users/${post.username}`}
+        >
+              {post.username}
+        </Link>
     </div>
    
   
   
     <div className = "post-container">
-    <Link
-        to={`/users/${post.username}`}
-        >
-              {post.username}
-        </Link>
-
+    {post.content}
 
         </div>
 <br></br>
