@@ -1,5 +1,5 @@
 class Post < ApplicationRecord
     belongs_to :user
     has_many :comments
-    has_many :shows
+    belongs_to :show
 end

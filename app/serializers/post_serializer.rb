@@ -1,7 +1,7 @@
 class PostSerializer < ActiveModel::Serializer
-  attributes :id, :content, :user_id, :username
+  attributes :id, :content, :user_id, :username, :show_id
 
   belongs_to :user
   has_many :comments
-  has_many :shows
+  belongs_to :show
 end

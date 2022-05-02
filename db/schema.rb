@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 2022_05_01_213523) do
     t.integer "user_id"
     t.string "content"
     t.string "username"
+    t.integer "show_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -37,7 +38,7 @@ ActiveRecord::Schema.define(version: 2022_05_01_213523) do
   end
 
   create_table "shows", force: :cascade do |t|
-    t.integer "post_id"
+    t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
