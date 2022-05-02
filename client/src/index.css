@@ -1,7 +1,12 @@
+
+
+
 .feedSize
 {width: 60px;
 height: 60px;
 border-radius: 100%;}
+
+
 
 
 .post-container {
@@ -45,3 +50,8 @@ width: 80px;
 border-radius: 100%;
 }
 
+.welcome{
+  margin-left: 610px;
+  }
+  
+  

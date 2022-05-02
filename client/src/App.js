@@ -106,7 +106,7 @@ useEffect(() => {
       <Switch>
       <Route exact path="/">
         <div>
-      <h1 className="welcomeBanner">Welcome</h1>
+      {user ? <h1 className ="welcome">Welcome {user.username} </h1> : null}
       </div>
       {user ? <MakePost handleAddPost={handleAddPost} user={user} setUser={setUser} /> : null}
       {user ? <FeedPage user={user} setUser={setUser} posts={posts} users={users} /> : null}

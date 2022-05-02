@@ -22,9 +22,8 @@ function FeedPage({posts, users}){
         </div>
 
 
-        <div className="post-container"> 
+        <div className="post-container-plus"> 
 
-             <br></br>
               {post.content}
               </div>
            
