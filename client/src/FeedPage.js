@@ -25,6 +25,8 @@ function FeedPage({posts, users}){
 
              <br></br>
               {post.content}
+              <br></br>
+            {post.show.name}
              
            
         
