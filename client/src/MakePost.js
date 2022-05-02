@@ -15,7 +15,7 @@ function MakePost({handleAddPost}) {
   }, []);
 
 
-  console.log(user)
+  if (user) {console.log(user.username)}
 
 
 
@@ -29,6 +29,7 @@ function MakePost({handleAddPost}) {
       const formData = {
          content: content,
          user_id: user.id,
+         username: user.username
         };
 
 
