@@ -4,6 +4,8 @@ function MakePost({handleAddPost}) {
   const [content, setContent] = useState("");
   const [makePostIsHidden, setMakePostIsHidden] = useState(false)
   const [user, setUser] =useState("")
+  const [show, setShow] =useState("")
+  const [search, setSearch] =useState("")
 
 
   useEffect(() => {
@@ -22,6 +24,29 @@ function MakePost({handleAddPost}) {
   function handlePost(event) {
     setContent(event.target.value);
   }
+
+  function handleShow(event) {
+    setSearch(event.target.value);
+  }
+
+  function handleSearch(e){
+      e.preventDefault();
+      const searchData =
+      {name: search}
+      fetch("/search", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(searchData),
+      })
+            .then((r) => r.json())
+            .then((show) => console.log(show));
+    
+      }
+
+
+
 
 
   function handleSubmit(e) {
@@ -54,9 +79,14 @@ function MakePost({handleAddPost}) {
     <>
       { makePostIsHidden ? ( 
         <div>  
+             <form onSubmit={handleSearch}>
+            <input className = "post-size" type="text"
+             placeholder="Search for a show" onChange={handleShow} value={search} />
+            <button className="button" type="submit">Submit</button>
+          </form> 
+
           <form onSubmit={handleSubmit}>
-            <input type="text"
-            className="textpost"
+            <input className = "post-size" type="text"
              placeholder="Write your post" onChange={handlePost} value={content} />
             <button className="button" type="submit">Submit</button>
           </form> 

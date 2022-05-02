@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   resources :users
 
 
+post '/search' ,to: "shows#search"
 
 
   post "/signup", to: "users#create"

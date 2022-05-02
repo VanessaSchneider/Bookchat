@@ -9,12 +9,20 @@ const { username }  = useParams();
 
 const user = users.find( user => user.username === username )
 
-console.log(user)
+let post = []
+post = user.posts.map((post)=><div>
+    {post.content}
+</div>)
+
 
 return (
 
     <div>
-userpage
+        {user.username}
+        <br></br>
+        <img src = {user.photo}></img>
+        {user.bio}
+        {post}
 
     </div>
 )
