@@ -40,13 +40,17 @@ post = user.posts.map((post)=><div>
 
 
 return (
-
-    <div>
-      {user.username}
+<div>
+    <div className = "user-feed-container">
+        <img className = "user-feed-image" src = {user.photo}></img>
+        <div></div>
+        {user.username}
         <br></br>
-        <img src = {user.photo}></img>
         {user.bio}
-         {post}  
+        </div>
+        <div className = "user-feed-container">
+         {post} 
+         </div> 
 
 
     </div>
