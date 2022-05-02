@@ -30,6 +30,7 @@ if (show.posts && show.posts.length !==0){post =
 show.posts.map((post)=> <div>
 
     {post.content}
+    <br></br>
    
   
   
@@ -51,12 +52,15 @@ show.posts.map((post)=> <div>
 return (
 
 
-
-    <div>
+<div>
+<div className = "user-feed-container">
 
 {show.name}
-
+</div>
+<br></br>
+<div className = "post-container">
        {post}
+       </div>
 
     </div>
 )
