@@ -30,7 +30,7 @@ function FeedPage({posts, users}){
               <Link
         to={`/shows/${post.show.name}`}
         >
-              {post.show.name}
+              #{post.show.name}
         </Link>
 
 

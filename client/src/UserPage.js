@@ -26,15 +26,17 @@ useEffect(() => {
 let post = []
 if (user.posts && user.posts.length !==0) {
 post = user.posts.map((post)=><div>
+<Link
+        to={`/shows/${post.show_name}`}
+        >
+              #{post.show_name}
+        </Link>
+<br></br>
+
     {post.content}
 
 
-    <Link
-        to={`/shows/${post.show_name}`}
-        >
-              {post.show_name}
-        </Link>
-
+    
 </div>)
 }
 
@@ -48,7 +50,7 @@ return (
         <br></br>
         {user.bio}
         </div>
-        <div className = "user-feed-container">
+        <div className = "post-container">
          {post} 
          </div> 
 
