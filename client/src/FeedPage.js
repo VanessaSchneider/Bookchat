@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 function FeedPage({posts, users}){
+    
 
 
 
@@ -10,7 +11,18 @@ function FeedPage({posts, users}){
             let post = []
           if (posts && posts.length!==0) {post = posts.map(post =><div className="post-container"> 
            {post.user.photo? <img className = "feedSize" src = {post.user.photo}></img> : null }
-             {post.user.username}
+
+
+           <Link
+        to={`/users/${post.user.username}`}
+        >
+              {post.user.username}
+        </Link>
+
+
+
+
+
              <br></br>
               {post.content}
              

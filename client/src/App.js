@@ -5,9 +5,10 @@ import Signup from './Signup';
 import Logout from './Logout.js';
 import MyProfile from './MyProfile.js'
 // import NavBar from './components/NavBar.js';
-import { Route, Switch, useHistory } from "react-router-dom";
+import { Route, Switch, useHistory, Link } from "react-router-dom";
 import FeedPage from './FeedPage.js'
 import MakePost from './MakePost.js'
+import UserPage from './UserPage';
 
 function App() {
   const [user, setUser] = useState(null);
@@ -107,6 +108,10 @@ useEffect(() => {
       <Route exact path="/MyProfile">
         <MyProfile user={user} setUser={setUser} handleDeleteProfile={handleDeleteProfile} />
       </Route>
+      <Route exact path={`/users/:username`} >
+              <UserPage users={users}/>
+            </Route>
+
       </Switch>
     </div>
   );
