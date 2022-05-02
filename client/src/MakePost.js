@@ -41,7 +41,13 @@ function MakePost ({ handleAddPost }) {
       .then(r => r.json())
       .then(show => setShow(show))
       setMakeSecondPostHidden((makeSecondPostHidden)=>!makeSecondPostHidden)
+      setMakeFirstPostIsHidden(makeFirstPostIsHidden => !makeFirstPostIsHidden)
+
   }
+
+  function showSelected(){
+    if (show) {return <h3>You are writing a post about the show, {show.name}</h3>}
+}
 
   console.log("showname", show.name)
 
@@ -73,6 +79,7 @@ function MakePost ({ handleAddPost }) {
 
   return (
     <>
+    {showSelected()}
       {makeFirstPostIsHidden ? 
         <div>
           <form onSubmit={handleSearch}>
