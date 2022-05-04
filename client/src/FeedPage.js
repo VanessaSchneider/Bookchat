@@ -10,7 +10,6 @@ function FeedPage ({ posts, users }) {
   if (posts && posts.length !== 0) {
     post = posts.map(post => (
       <div>
-        {' '}
         <div className='post-container'>
           {post.user.photo ? (
             <img className='feedSize' src={post.user.photo}></img>

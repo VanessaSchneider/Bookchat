@@ -5,7 +5,7 @@ import Signup from './Signup';
 import Logout from './Logout.js';
 import MyProfile from './MyProfile.js'
 // import NavBar from './components/NavBar.js';
-import { Route, Switch, useHistory, Link } from "react-router-dom";
+import { Route, Switch, useHistory, Link, useLocation } from "react-router-dom";
 import FeedPage from './FeedPage.js'
 import MakePost from './MakePost.js'
 import UserPage from './UserPage';
