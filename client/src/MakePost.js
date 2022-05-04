@@ -77,6 +77,7 @@ function MakePost ({ handleAddPost, makePostDisplay, setMakePostDisplay }) {
       .then(r => r.json())
       .then(newPost => handleAddPost(newPost))
       setMakePostDisplay(makePostDisplay=>!makePostDisplay)
+      reset()
   }
 
   function handleWritePostClick () {
