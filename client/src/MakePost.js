@@ -76,6 +76,7 @@ function MakePost ({ handleAddPost, makePostDisplay, setMakePostDisplay }) {
     })
       .then(r => r.json())
       .then(newPost => handleAddPost(newPost))
+      setMakePostDisplay(makePostDisplay=>!makePostDisplay)
   }
 
   function handleWritePostClick () {
@@ -109,7 +110,7 @@ function MakePost ({ handleAddPost, makePostDisplay, setMakePostDisplay }) {
     <>
       {showSelected()}
       {makeFirstPostIsHidden ? (
-        <div>
+        <div className = "submit-forms">
           <h2>Search for the movie you would like to post about</h2>
           <form onSubmit={handleSearch}>
             <input
@@ -126,7 +127,7 @@ function MakePost ({ handleAddPost, makePostDisplay, setMakePostDisplay }) {
       ) : null}
 
       {makeSecondPostHidden ? (
-        <div>
+        <div className = "submit-forms">
           <form onSubmit={handleSubmit}>
             <input
               className='post-size'
