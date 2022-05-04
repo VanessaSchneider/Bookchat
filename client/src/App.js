@@ -16,6 +16,7 @@ function App() {
   const [posts, setPosts] = useState([]);
   const [users, setUsers] = useState([]);
   const history = useHistory();
+  const location = useLocation();
   const [makePostDisplay, setMakePostDisplay] =useState(false);
   
 
@@ -33,7 +34,7 @@ function App() {
   }, []);
 
 
-
+console.log("location",location.pathname)
   
     
 
@@ -96,7 +97,7 @@ useEffect(() => {
       {user ? null : <Signup onLogin={setUser} login={login} /> }
       <nav className="nav-container">
       {user ? <Logout handleLogout={handleLogout}/> : <Login onLogin={setUser}/> }
-      {user ? <Link to="/">
+      {user && location.pathname !=="/"  ? <Link to="/">
     <button >Home</button>
     </Link>: null}
       
