@@ -2,10 +2,12 @@ class PostsController < ApplicationController
 
     def index
         posts = Post.all
-        render json: posts, status: :ok
+        postsordered = posts.reverse_order
+        render json: postsordered, status: :ok
     end
 
-    
+
+
     # def show
     #     post = Post.find_by(id: session[:user_id])
     #     if user
