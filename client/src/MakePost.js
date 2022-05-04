@@ -42,7 +42,7 @@ function MakePost ({ handleAddPost, makePostDisplay, setMakePostDisplay }) {
       .then(show => setShow(show))
     setMakeSecondPostHidden(makeSecondPostHidden => !makeSecondPostHidden)
     setMakeFirstPostIsHidden(makeFirstPostIsHidden => !makeFirstPostIsHidden)
-    setSearch("")
+    setSearch('')
   }
 
   function showSelected () {
@@ -50,7 +50,11 @@ function MakePost ({ handleAddPost, makePostDisplay, setMakePostDisplay }) {
       (show && makeFirstPostIsHidden === true) ||
       makeSecondPostHidden === true
     ) {
-      return <h3>You are writing a post about the show, {show.name}</h3>
+      return (
+        <h3 className='submit-forms'>
+          You are writing a post about the show, {show.name}
+        </h3>
+      )
     }
   }
 
@@ -76,25 +80,35 @@ function MakePost ({ handleAddPost, makePostDisplay, setMakePostDisplay }) {
     })
       .then(r => r.json())
       .then(newPost => handleAddPost(newPost))
-      setMakePostDisplay(makePostDisplay=>!makePostDisplay)
-      reset()
-      setContent("")
+    setMakePostDisplay(makePostDisplay => !makePostDisplay)
+    reset()
+    setContent('')
   }
 
   function handleWritePostClick () {
     setMakeFirstPostIsHidden(makeFirstPostIsHidden => !makeFirstPostIsHidden)
-    setMakePostDisplay(makePostDisplay=>!makePostDisplay)
+    setMakePostDisplay(makePostDisplay => !makePostDisplay)
   }
 
   function buttonToShow () {
     if (makeFirstPostIsHidden === false && makeSecondPostHidden === false) {
-      return <button className = "submit-forms" onClick={handleWritePostClick}> Write a Post </button>
+      return (
+        <button className='submit-forms' onClick={handleWritePostClick}>
+          {' '}
+          Write a Post{' '}
+        </button>
+      )
     } else if (
       makeFirstPostIsHidden === true &&
       makeSecondPostHidden === false
     ) {
       return (
-        <div className = "submit-forms"><button className = "button-center" onClick={handleWritePostClick}> Don't Write a Post </button></div>
+        <div className='submit-forms'>
+          <button className='button-center' onClick={handleWritePostClick}>
+            {' '}
+            Don't Write a Post{' '}
+          </button>
+        </div>
       )
     } else {
       return null
@@ -104,24 +118,24 @@ function MakePost ({ handleAddPost, makePostDisplay, setMakePostDisplay }) {
   function reset () {
     setMakeSecondPostHidden(makeSecondPostHidden => false)
     setMakeFirstPostIsHidden(makeFirstPostIsHidden => false)
-    setShow("")
-    setMakePostDisplay(makePostDisplay=>false)
+    setShow('')
+    setMakePostDisplay(makePostDisplay => false)
   }
 
   return (
     <>
       {showSelected()}
       {makeFirstPostIsHidden ? (
-        <div className = "submit-forms">
+        <div className='submit-forms'>
           <h2>Search for the movie you would like to post about</h2>
-          <form className = "submit-forms" onSubmit={handleSearch}>
+          <form className='submit-forms' onSubmit={handleSearch}>
             <input
               type='text'
               placeholder='Movie Name'
               onChange={handleShow}
               value={search}
             />
-            <button className = "submit-forms" type='submit'>
+            <button className='submit-forms' type='Submit'>
               Submit
             </button>
           </form>{' '}
@@ -129,20 +143,23 @@ function MakePost ({ handleAddPost, makePostDisplay, setMakePostDisplay }) {
       ) : null}
 
       {makeSecondPostHidden ? (
-        <div className = "submit-forms">
+        <div>
+        <div className='submit-forms'>
           <form onSubmit={handleSubmit}>
             <input
               className='post-size'
               type='text'
               placeholder='Write your post'
               onChange={handlePost}
-              value={content}
-            />
+              value={content}/>
             <button className='button' type='submit'>
               Submit
             </button>
           </form>
-          <button className = "submit-forms" onClick={reset}>Don't Make a Post </button>
+          </div>
+            <div>
+          <button onClick={reset}>Don't Make a Post </button>
+        </div>
         </div>
       ) : null}
       {buttonToShow()}

@@ -10,6 +10,7 @@ import FeedPage from './FeedPage.js'
 import MakePost from './MakePost.js'
 import UserPage from './UserPage';
 import ShowPage from './ShowPage';
+import Messages from './Messages';
 
 function App() {
   const [user, setUser] = useState(null);
@@ -97,6 +98,9 @@ useEffect(() => {
       {user ? null : <Signup onLogin={setUser} login={login} /> }
       <nav className="nav-container">
       {user ? <Logout handleLogout={handleLogout}/> : <Login onLogin={setUser}/> }
+      {user && location.pathname !=="/messages" ? <Link to="/messages">
+    <button >Messages</button>
+    </Link>: null}
       {user && location.pathname !=="/"  ? <Link to="/">
     <button >Home</button>
     </Link>: null}
@@ -122,6 +126,11 @@ useEffect(() => {
             <Route exact path={`/shows/:name`} >
               <ShowPage users={users}/>
             </Route>
+
+            <Route exact path="/Messages">
+              <Messages/>
+            </Route>
+
 
       </Switch>
     </div>
