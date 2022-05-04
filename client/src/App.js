@@ -56,7 +56,7 @@ console.log("location",location.pathname)
   }
 
   function handleAddPost(newPost){
-    setPosts([...posts, newPost])
+    setPosts([newPost,...posts])
  }
 
 
