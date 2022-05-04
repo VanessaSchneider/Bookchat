@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  resources :friends
   resources :shows
   resources :comments
   resources :posts
@@ -10,6 +11,7 @@ Rails.application.routes.draw do
 post '/search' ,to: "shows#search"
 post '/getuser' ,to: "users#getuser"
 
+post "/addfriend", to: "friends#create"
 
   post "/signup", to: "users#create"
   get "/me", to: "users#me"

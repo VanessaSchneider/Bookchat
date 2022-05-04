@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom"
 import { useState, useEffect } from 'react';
+import AddFriend from './AddFriend.js';
 
 function UserPage(){
 const { username }  = useParams();
@@ -44,6 +45,7 @@ post = user.posts.map((post)=><div><div className = "post-container" >
 
 return (
 <div>
+    <AddFriend user={user}/>
     <div className = "post-container">
         <img className = "user-feed-image" src = {user.photo}></img>
        </div>

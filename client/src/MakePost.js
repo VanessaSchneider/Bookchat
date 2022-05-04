@@ -40,16 +40,17 @@ function MakePost ({ handleAddPost }) {
     })
       .then(r => r.json())
       .then(show => setShow(show))
-      setMakeSecondPostHidden((makeSecondPostHidden)=>!makeSecondPostHidden)
-      setMakeFirstPostIsHidden(makeFirstPostIsHidden => !makeFirstPostIsHidden)
-
+    setMakeSecondPostHidden(makeSecondPostHidden => !makeSecondPostHidden)
+    setMakeFirstPostIsHidden(makeFirstPostIsHidden => !makeFirstPostIsHidden)
   }
 
-  function showSelected(){
-    if (show) {return <h3>You are writing a post about the show, {show.name}</h3>}
-}
+  function showSelected () {
+    if (show) {
+      return <h3>You are writing a post about the show, {show.name}</h3>
+    }
+  }
 
-  console.log("showname", show.name)
+  console.log('showname', show.name)
 
   function handleSubmit (e) {
     e.preventDefault()
@@ -58,7 +59,7 @@ function MakePost ({ handleAddPost }) {
       show_id: show.id,
       user_id: user.id,
       username: user.username,
-      show_name: show.name,
+      show_name: show.name
     }
 
     console.log(formData)
@@ -79,8 +80,8 @@ function MakePost ({ handleAddPost }) {
 
   return (
     <>
-    {showSelected()}
-      {makeFirstPostIsHidden ? 
+      {showSelected()}
+      {makeFirstPostIsHidden ? (
         <div>
           <form onSubmit={handleSearch}>
             <input
@@ -93,24 +94,28 @@ function MakePost ({ handleAddPost }) {
             <button className='button' type='submit'>
               Submit
             </button>
-          </form> </div>: null}
+          </form>{' '}
+        </div>
+      ) : null}
 
-          {makeSecondPostHidden ? <form onSubmit={handleSubmit}>
-            <input
-              className='post-size'
-              type='text'
-              placeholder='Write your post'
-              onChange={handlePost}
-              value={content}
-            />
-            <button className='button' type='submit'>
-              Submit
-            </button>
-          </form>
-        :null}
+      {makeSecondPostHidden ? (
+        <form onSubmit={handleSubmit}>
+          <input
+            className='post-size'
+            type='text'
+            placeholder='Write your post'
+            onChange={handlePost}
+            value={content}
+          />
+          <button className='button' type='submit'>
+            Submit
+          </button>
+        </form>
+      ) : null}
       <button className='button' onClick={handleWritePostClick}>
-        {' '}
-        {makeFirstPostIsHidden ? 'Hide Post Field' : 'Write a Post'}{' '}
+        {makeFirstPostIsHidden && makeSecondPostHidden === true
+          ? "Don't Write a Post Afterall"
+          : 'Write a Post'}
       </button>
     </>
   )
