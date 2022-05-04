@@ -78,6 +78,7 @@ function MakePost ({ handleAddPost, makePostDisplay, setMakePostDisplay }) {
       .then(newPost => handleAddPost(newPost))
       setMakePostDisplay(makePostDisplay=>!makePostDisplay)
       reset()
+      setContent("")
   }
 
   function handleWritePostClick () {
@@ -87,13 +88,13 @@ function MakePost ({ handleAddPost, makePostDisplay, setMakePostDisplay }) {
 
   function buttonToShow () {
     if (makeFirstPostIsHidden === false && makeSecondPostHidden === false) {
-      return <button onClick={handleWritePostClick}> Write a Post </button>
+      return <button className = "submit-forms" onClick={handleWritePostClick}> Write a Post </button>
     } else if (
       makeFirstPostIsHidden === true &&
       makeSecondPostHidden === false
     ) {
       return (
-        <button onClick={handleWritePostClick}> Don't Write a Post </button>
+        <div className = "submit-forms"><button className = "button-center" onClick={handleWritePostClick}> Don't Write a Post </button></div>
       )
     } else {
       return null
@@ -141,7 +142,7 @@ function MakePost ({ handleAddPost, makePostDisplay, setMakePostDisplay }) {
               Submit
             </button>
           </form>
-          <button onClick={reset}>Don't Make a Post </button>
+          <button className = "submit-forms" onClick={reset}>Don't Make a Post </button>
         </div>
       ) : null}
       {buttonToShow()}

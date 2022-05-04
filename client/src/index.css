@@ -9,6 +9,7 @@ border-radius: 100%;}
 .submit-forms{
 
   justify-content: center;
+  display: grid;
 }
 
 
