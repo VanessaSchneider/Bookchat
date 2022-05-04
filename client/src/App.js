@@ -19,10 +19,10 @@ function App() {
   const [makePostDisplay, setMakePostDisplay] =useState(false);
   
 
-  // const handleReroute = () => {
-  //   console.log("Reroute!")
-  //   history.push("/");
-  //   }
+  const handleReroute = () => {
+    console.log("Reroute!")
+    history.push("/");
+    }
 
   useEffect(() => {
     fetch("/me").then((response) => {
@@ -77,7 +77,7 @@ useEffect(() => {
     fetch("/logout", {
         method: "DELETE",
         }).then(() => setUser())
-        // .then(()=>handleReroute())
+        .then(()=>handleReroute())
       }
 
   function handleDeleteProfile() {

@@ -114,14 +114,14 @@ function MakePost ({ handleAddPost, makePostDisplay, setMakePostDisplay }) {
       {makeFirstPostIsHidden ? (
         <div className = "submit-forms">
           <h2>Search for the movie you would like to post about</h2>
-          <form onSubmit={handleSearch}>
+          <form className = "submit-forms" onSubmit={handleSearch}>
             <input
               type='text'
               placeholder='Movie Name'
               onChange={handleShow}
               value={search}
             />
-            <button className='button' type='submit'>
+            <button className = "submit-forms" type='submit'>
               Submit
             </button>
           </form>{' '}
