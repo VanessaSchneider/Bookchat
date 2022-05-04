@@ -38,7 +38,7 @@ function Add(){
 return(
 <div>
 <button onClick={Add}> Add Friend </button>
-{friendRequest ?<h2> Friend Request Sent to {user.username}</h2> : null}
+{friendRequest ?<h2> You now follow {user.username}</h2> : null}
 </div>
 )}
 export default AddFriend;
