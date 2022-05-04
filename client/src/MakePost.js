@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 
-function MakePost ({ handleAddPost }) {
+function MakePost ({ handleAddPost, makePostDisplay, setMakePostDisplay }) {
   const [content, setContent] = useState('')
   const [makeFirstPostIsHidden, setMakeFirstPostIsHidden] = useState(false)
   const [makeSecondPostHidden, setMakeSecondPostHidden] = useState(false)
@@ -80,6 +80,7 @@ function MakePost ({ handleAddPost }) {
 
   function handleWritePostClick () {
     setMakeFirstPostIsHidden(makeFirstPostIsHidden => !makeFirstPostIsHidden)
+    setMakePostDisplay(makePostDisplay=>!makePostDisplay)
   }
 
   function buttonToShow () {
@@ -101,6 +102,7 @@ function MakePost ({ handleAddPost }) {
     setMakeSecondPostHidden(makeSecondPostHidden => false)
     setMakeFirstPostIsHidden(makeFirstPostIsHidden => false)
     setShow("")
+    setMakePostDisplay(makePostDisplay=>false)
   }
 
   return (

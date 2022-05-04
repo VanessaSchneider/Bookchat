@@ -14,8 +14,9 @@ import ShowPage from './ShowPage';
 function App() {
   const [user, setUser] = useState(null);
   const [posts, setPosts] = useState([]);
-  const [users, setUsers] = useState([])
+  const [users, setUsers] = useState([]);
   const history = useHistory();
+  const [makePostDisplay, setMakePostDisplay] =useState(false);
   
 
   // const handleReroute = () => {
@@ -108,8 +109,8 @@ useEffect(() => {
         <div>
       {user ? <h1 className ="welcome">Welcome {user.username} </h1> : null}
       </div>
-      {user ? <MakePost handleAddPost={handleAddPost} user={user} setUser={setUser} /> : null}
-      {user ? <FeedPage user={user} setUser={setUser} posts={posts} users={users} /> : null}
+      {user ? <MakePost makePostDisplay={makePostDisplay} setMakePostDisplay={setMakePostDisplay} handleAddPost={handleAddPost} user={user} setUser={setUser} /> : null}
+      {user && makePostDisplay === false? <FeedPage user={user} setUser={setUser} posts={posts} users={users} /> : null}
       </Route>
       <Route exact path="/MyProfile">
         <MyProfile user={user} setUser={setUser} handleDeleteProfile={handleDeleteProfile} />

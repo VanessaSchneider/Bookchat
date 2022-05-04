@@ -26,9 +26,7 @@ function FeedPage ({ posts, users }) {
           <br></br>
           <br></br>
         </div>
-        {/* <Link to={`users/${post.user_id}`}>
-                     <div className="post-username-link">{post.user_id.user} </div>
-                    </Link> */}
+       
       </div>
     ))
   } else {
