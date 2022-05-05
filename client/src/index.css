@@ -1,4 +1,12 @@
-
+button {
+  cursor: pointer;
+}
+.on {
+  color: #000;
+}
+.off {
+  color: #ccc;
+}
 
 
 .feedSize

@@ -12,12 +12,10 @@ class FriendsController < ApplicationController
 
     def create
         friend = Friend.create(friend_params)
-        # friend.match_check
+        friend.match_check
         render json: friend, status: :ok
     end
     # user_id: params[:user_id], liked_person_id: params[:liked_person_id]
-
-
 
 
 

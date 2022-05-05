@@ -1,8 +1,7 @@
 import { useEffect, useState } from 'react'
-import StarRating from './StarRating';
 
-function MakePost ({ handleAddPost, makePostDisplay, setMakePostDisplay }) {
-  const [content, setContent] = useState('')
+function Vote () {
+  const [rating, setRating] = useState(0)
   const [makeFirstPostIsHidden, setMakeFirstPostIsHidden] = useState(false)
   const [makeSecondPostHidden, setMakeSecondPostHidden] = useState(false)
   const [user, setUser] = useState('')
@@ -22,7 +21,7 @@ function MakePost ({ handleAddPost, makePostDisplay, setMakePostDisplay }) {
   }
 
   function handlePost (event) {
-    setContent(event.target.value)
+    setRating(event.target.value)
   }
 
   function handleShow (event) {
@@ -53,7 +52,7 @@ function MakePost ({ handleAddPost, makePostDisplay, setMakePostDisplay }) {
     ) {
       return (
         <h3 className='submit-forms'>
-          You are writing a post about the show, {show.name}
+          You are rating the show, {show.name}
         </h3>
       )
     }
@@ -64,7 +63,7 @@ function MakePost ({ handleAddPost, makePostDisplay, setMakePostDisplay }) {
   function handleSubmit (e) {
     e.preventDefault()
     const formData = {
-      content: content,
+      rating: rating,
       show_id: show.id,
       user_id: user.id,
       username: user.username,
@@ -88,7 +87,6 @@ function MakePost ({ handleAddPost, makePostDisplay, setMakePostDisplay }) {
 
   function handleWritePostClick () {
     setMakeFirstPostIsHidden(makeFirstPostIsHidden => !makeFirstPostIsHidden)
-    setMakePostDisplay(makePostDisplay => !makePostDisplay)
   }
 
   function buttonToShow () {
@@ -145,22 +143,22 @@ function MakePost ({ handleAddPost, makePostDisplay, setMakePostDisplay }) {
 
       {makeSecondPostHidden ? (
         <div>
-        <div className='submit-forms'>
-          <form onSubmit={handleSubmit}>
-            <input
-              className='post-size'
-              type='text'
-              placeholder='Write your post'
-              onChange={handlePost}
-              value={content}/>
-            <button className='button' type='submit'>
-              Submit
-            </button>
-          </form>
-          <br></br>
-          <h3> Rate {show.name} out of 5 stars! </h3>
-          <StarRating/>
-          </div>
+      <div className="star-rating">
+      {[...Array(5)].map((star, index) => {
+        index += 1;
+        return (
+          <button
+            type="button"
+            key={index}
+            className={index <= rating ? "on" : "off"}
+            onClick={() => setRating(index)}
+          >
+            <span className="star">&#9733;</span>
+          </button>
+        );
+      })}
+    </div>
+          
             <div>
           <button onClick={reset}>Don't Make a Post </button>
         </div>
@@ -171,4 +169,4 @@ function MakePost ({ handleAddPost, makePostDisplay, setMakePostDisplay }) {
     </>
   )
 }
-export default MakePost
+export default Vote;

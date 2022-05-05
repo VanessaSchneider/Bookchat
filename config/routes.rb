@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  resources :matches
   resources :friends
   resources :shows
   resources :comments
