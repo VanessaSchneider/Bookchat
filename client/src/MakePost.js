@@ -8,6 +8,8 @@ function MakePost ({ handleAddPost, makePostDisplay, setMakePostDisplay }) {
   const [user, setUser] = useState('')
   const [show, setShow] = useState('')
   const [search, setSearch] = useState('')
+  const [showStars, setShowStars] =useState(false)
+  const [rating, setRating] = useState(null);
 
   useEffect(() => {
     fetch('/me').then(response => {
@@ -17,9 +19,7 @@ function MakePost ({ handleAddPost, makePostDisplay, setMakePostDisplay }) {
     })
   }, [])
 
-  if (user) {
-    console.log(user.username)
-  }
+
 
   function handlePost (event) {
     setContent(event.target.value)
@@ -59,7 +59,6 @@ function MakePost ({ handleAddPost, makePostDisplay, setMakePostDisplay }) {
     }
   }
 
-  console.log('showname', show.name)
 
   function handleSubmit (e) {
     e.preventDefault()
@@ -70,6 +69,13 @@ function MakePost ({ handleAddPost, makePostDisplay, setMakePostDisplay }) {
       username: user.username,
       show_name: show.name
     }
+
+      const ratingData=
+      {rating: rating,
+        show_id: show.id,
+        user_id: user.id
+      }
+    
 
     console.log(formData)
     fetch('/posts', {
@@ -84,7 +90,26 @@ function MakePost ({ handleAddPost, makePostDisplay, setMakePostDisplay }) {
     setMakePostDisplay(makePostDisplay => !makePostDisplay)
     reset()
     setContent('')
+
+
+    if (rating !== null)
+    {fetch(`/ratings`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(ratingData)
+    })
+      .then(r => r.json())
+      .then(newrating => console.log(newrating))
+    // setMakePostDisplay(makePostDisplay => !makePostDisplay)
+    }
   }
+
+
+
+
+
 
   function handleWritePostClick () {
     setMakeFirstPostIsHidden(makeFirstPostIsHidden => !makeFirstPostIsHidden)
@@ -123,6 +148,11 @@ function MakePost ({ handleAddPost, makePostDisplay, setMakePostDisplay }) {
     setMakePostDisplay(makePostDisplay => false)
   }
 
+  function showRating(){
+    setShowStars(showStars => !showStars)
+    setRating(rating=> null)
+  }
+
   return (
     <>
       {showSelected()}
@@ -158,8 +188,8 @@ function MakePost ({ handleAddPost, makePostDisplay, setMakePostDisplay }) {
             </button>
           </form>
           <br></br>
-          <h3> Rate {show.name} out of 5 stars! </h3>
-          <StarRating/>
+          <button onClick={showRating}> {showStars?"Don't Rate Show":"Rate show out of 5 stars!"} </button>
+         {showStars? <StarRating rating={rating} setRating={setRating}/> : null}
           </div>
             <div>
           <button onClick={reset}>Don't Make a Post </button>

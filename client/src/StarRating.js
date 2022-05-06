@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react'
 
-function StarRating() {
-    const [rating, setRating] = useState(0);
+function StarRating({rating, setRating}) {
     return (
         <div className="star-rating">
         {[...Array(5)].map((star, index) => {
@@ -12,9 +11,8 @@ function StarRating() {
               key={index}
               className={index <= ( rating) ? "on" : "off"}
               onClick={() => setRating(index)}
-        
             >
-              <span className="star">&#9733;</span>
+              <span>&#9733;</span>
             </button>
           );
         })}

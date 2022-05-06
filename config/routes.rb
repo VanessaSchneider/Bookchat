@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  resources :ratings
   resources :matches
   resources :friends
   resources :shows

@@ -24,6 +24,7 @@ function ShowPage(){
         [])
 
 console.log(show.posts)
+console.log(show.rating)
 
 let post = []
 if (show.posts && show.posts.length !==0){post =
@@ -34,8 +35,6 @@ show.posts.map((post)=> <div> <div className = "post-container">
               {post.username}
         </Link>
     </div>
-   
-  
   
     <div className = "post-container">
     {post.content}
@@ -53,7 +52,8 @@ return (
 <div>
 <div className = "post-container">
 
-{show.name}
+<h2>{show.name}</h2>
+<h4>Show has a rating of {show.rating}/5 based on user votes </h4>
 </div>
 <br></br>
 <div className = "post-container">
