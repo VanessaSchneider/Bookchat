@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import StarRating from './StarRating';
+import StarRating from './StarRating'
 
 function MakePost ({ handleAddPost, makePostDisplay, setMakePostDisplay }) {
   const [content, setContent] = useState('')
@@ -8,8 +8,8 @@ function MakePost ({ handleAddPost, makePostDisplay, setMakePostDisplay }) {
   const [user, setUser] = useState('')
   const [show, setShow] = useState('')
   const [search, setSearch] = useState('')
-  const [showStars, setShowStars] =useState(false)
-  const [rating, setRating] = useState(null);
+  const [showStars, setShowStars] = useState(false)
+  const [rating, setRating] = useState(null)
 
   useEffect(() => {
     fetch('/me').then(response => {
@@ -18,8 +18,6 @@ function MakePost ({ handleAddPost, makePostDisplay, setMakePostDisplay }) {
       }
     })
   }, [])
-
-
 
   function handlePost (event) {
     setContent(event.target.value)
@@ -40,10 +38,11 @@ function MakePost ({ handleAddPost, makePostDisplay, setMakePostDisplay }) {
       body: JSON.stringify(searchData)
     })
       .then(r => r.json())
-      .then(show => setShow(show))
-    setMakeSecondPostHidden(makeSecondPostHidden => !makeSecondPostHidden)
+      .then((show) => (show.name ?setShow(show) : alert(show.error)))
+
+    if (show.name) {setMakeSecondPostHidden(makeSecondPostHidden => !makeSecondPostHidden)
     setMakeFirstPostIsHidden(makeFirstPostIsHidden => !makeFirstPostIsHidden)
-    setSearch('')
+    setSearch('')}
   }
 
   function showSelected () {
@@ -59,7 +58,6 @@ function MakePost ({ handleAddPost, makePostDisplay, setMakePostDisplay }) {
     }
   }
 
-
   function handleSubmit (e) {
     e.preventDefault()
     const formData = {
@@ -70,12 +68,7 @@ function MakePost ({ handleAddPost, makePostDisplay, setMakePostDisplay }) {
       show_name: show.name
     }
 
-      const ratingData=
-      {rating: rating,
-        show_id: show.id,
-        user_id: user.id
-      }
-    
+    const ratingData = { rating: rating, show_id: show.id, user_id: user.id }
 
     console.log(formData)
     fetch('/posts', {
@@ -91,25 +84,18 @@ function MakePost ({ handleAddPost, makePostDisplay, setMakePostDisplay }) {
     reset()
     setContent('')
 
-
-    if (rating !== null)
-    {fetch(`/ratings`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(ratingData)
-    })
-      .then(r => r.json())
-      .then(newrating => console.log(newrating))
-    // setMakePostDisplay(makePostDisplay => !makePostDisplay)
+    if (rating !== null) {
+      fetch(`/ratings`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(ratingData)
+      })
+        .then(r => r.json())
+        .then(newrating => console.log(newrating))
     }
   }
-
-
-
-
-
 
   function handleWritePostClick () {
     setMakeFirstPostIsHidden(makeFirstPostIsHidden => !makeFirstPostIsHidden)
@@ -131,7 +117,6 @@ function MakePost ({ handleAddPost, makePostDisplay, setMakePostDisplay }) {
       return (
         <div className='submit-forms'>
           <button className='button-center' onClick={handleWritePostClick}>
-            {' '}
             Don't Write a Post{' '}
           </button>
         </div>
@@ -148,9 +133,9 @@ function MakePost ({ handleAddPost, makePostDisplay, setMakePostDisplay }) {
     setMakePostDisplay(makePostDisplay => false)
   }
 
-  function showRating(){
+  function showRating () {
     setShowStars(showStars => !showStars)
-    setRating(rating=> null)
+    setRating(rating => null)
   }
 
   return (
@@ -175,29 +160,34 @@ function MakePost ({ handleAddPost, makePostDisplay, setMakePostDisplay }) {
 
       {makeSecondPostHidden ? (
         <div>
-        <div className='submit-forms'>
-          <form onSubmit={handleSubmit}>
-            <input
-              className='post-size'
-              type='text'
-              placeholder='Write your post'
-              onChange={handlePost}
-              value={content}/>
-            <button className='button' type='submit'>
-              Submit
+          <div className='submit-forms'>
+            <form onSubmit={handleSubmit}>
+              <input
+                className='post-size'
+                type='text'
+                placeholder='Write your post'
+                onChange={handlePost}
+                value={content}
+              />
+              <button className='button' type='submit'>
+                Submit
+              </button>
+            </form>
+            <br></br>
+            <button onClick={showRating}>
+              {' '}
+              {showStars ? "Don't Rate Show" : 'Rate show out of 5 stars!'}{' '}
             </button>
-          </form>
-          <br></br>
-          <button onClick={showRating}> {showStars?"Don't Rate Show":"Rate show out of 5 stars!"} </button>
-         {showStars? <StarRating rating={rating} setRating={setRating}/> : null}
+            {showStars ? (
+              <StarRating rating={rating} setRating={setRating} />
+            ) : null}
           </div>
-            <div>
-          <button onClick={reset}>Don't Make a Post </button>
-        </div>
+          <div>
+            <button onClick={reset}>Don't Make a Post </button>
+          </div>
         </div>
       ) : null}
       {buttonToShow()}
-
     </>
   )
 }
