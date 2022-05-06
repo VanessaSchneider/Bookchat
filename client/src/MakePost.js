@@ -38,17 +38,16 @@ function MakePost ({ handleAddPost, makePostDisplay, setMakePostDisplay }) {
       body: JSON.stringify(searchData)
     })
       .then(r => r.json())
-      .then((show) => (show.name ?setShow(show) : alert(show.error)))
-
-    if (show.name) {setMakeSecondPostHidden(makeSecondPostHidden => !makeSecondPostHidden)
-    setMakeFirstPostIsHidden(makeFirstPostIsHidden => !makeFirstPostIsHidden)
-    setSearch('')}
+      .then((show) => (show.name ?setShow(show) :reset2()))
+  setMakeSecondPostHidden(makeSecondPostHidden => !makeSecondPostHidden)
+ setMakeFirstPostIsHidden(makeFirstPostIsHidden => !makeFirstPostIsHidden )
+    setSearch('')
   }
 
   function showSelected () {
     if (
-      (show && makeFirstPostIsHidden === true) ||
-      makeSecondPostHidden === true
+      (show.name && makeFirstPostIsHidden === true) ||
+      makeSecondPostHidden === true && show.name
     ) {
       return (
         <h3 className='submit-forms'>
@@ -106,8 +105,7 @@ function MakePost ({ handleAddPost, makePostDisplay, setMakePostDisplay }) {
     if (makeFirstPostIsHidden === false && makeSecondPostHidden === false) {
       return (
         <button className='submit-forms' onClick={handleWritePostClick}>
-          {' '}
-          Write a Post{' '}
+          Write a Post
         </button>
       )
     } else if (
@@ -133,6 +131,15 @@ function MakePost ({ handleAddPost, makePostDisplay, setMakePostDisplay }) {
     setMakePostDisplay(makePostDisplay => false)
   }
 
+  function reset2 () {
+    setMakeSecondPostHidden(makeSecondPostHidden => false)
+    setMakeFirstPostIsHidden(makeFirstPostIsHidden => true)
+    setShow('')
+    setMakePostDisplay(makePostDisplay => true)
+  }
+
+
+
   function showRating () {
     setShowStars(showStars => !showStars)
     setRating(rating => null)
@@ -141,7 +148,7 @@ function MakePost ({ handleAddPost, makePostDisplay, setMakePostDisplay }) {
   return (
     <>
       {showSelected()}
-      {makeFirstPostIsHidden ? (
+      {makeFirstPostIsHidden=== true ? (
         <div className='submit-forms'>
           <h2>Search for the movie you would like to post about</h2>
           <form className='submit-forms' onSubmit={handleSearch}>
@@ -158,7 +165,7 @@ function MakePost ({ handleAddPost, makePostDisplay, setMakePostDisplay }) {
         </div>
       ) : null}
 
-      {makeSecondPostHidden ? (
+      {makeSecondPostHidden &&show.name ? (
         <div>
           <div className='submit-forms'>
             <form onSubmit={handleSubmit}>

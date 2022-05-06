@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 
 function StarRating({rating, setRating}) {
     return (
-        <div className="star-rating">
+        <div>
         {[...Array(5)].map((star, index) => {
           index += 1;
           return (
