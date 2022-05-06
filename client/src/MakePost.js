@@ -38,7 +38,7 @@ function MakePost ({ handleAddPost, makePostDisplay, setMakePostDisplay }) {
       body: JSON.stringify(searchData)
     })
       .then(r => r.json())
-      .then((show) => (show.name ?setShow(show) :reset2()))
+      .then((show) => (show.name ?setShow(show) : reset2()))
   setMakeSecondPostHidden(makeSecondPostHidden => !makeSecondPostHidden)
  setMakeFirstPostIsHidden(makeFirstPostIsHidden => !makeFirstPostIsHidden )
     setSearch('')
@@ -136,6 +136,7 @@ function MakePost ({ handleAddPost, makePostDisplay, setMakePostDisplay }) {
     setMakeFirstPostIsHidden(makeFirstPostIsHidden => true)
     setShow('')
     setMakePostDisplay(makePostDisplay => true)
+    alert(show.error)
   }
 
 
