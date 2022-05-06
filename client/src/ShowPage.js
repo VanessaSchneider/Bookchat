@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 
 function ShowPage(){
     const { name}  = useParams();
+    const [rating, setRating] = useState(null)
     const [show, setShow] =useState("")
     const searchData = {
         name: name
@@ -53,7 +54,25 @@ return (
 <div className = "post-container">
 
 <h2>{show.name}</h2>
-<h4>Show has a rating of {show.rating}/5 based on user votes </h4>
+<h4>Show rating based on users voting </h4>
+<div className="star-rating">
+        {[...Array(5)].map((star, index) => {
+          index += 1;
+          return (
+            <button
+              type="button"
+              key={index}
+              className={index <= (show.rating) ? "on" : "off"}
+            >
+              <span>&#9733;</span>
+            </button>
+          );
+        })}
+      </div>
+
+
+
+
 </div>
 <br></br>
 <div className = "post-container">
