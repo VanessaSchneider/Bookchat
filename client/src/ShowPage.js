@@ -29,9 +29,14 @@ function ShowPage ({users}) {
         <div className='post-container'>
           <Link to={`/users/${post.username}`}>{post.username}</Link>
         </div>
-        <div className='post-container'>{post.content}</div>
-        <br></br>
-      </div>
+        <div className='post-container-plus'>
+        <Link to={`/posts/${post.id}`}>
+          <button className = "button2"
+          >{post.content}</button>
+                </Link>
+                <br></br>
+          </div>
+          </div>
     ))
   }
 
