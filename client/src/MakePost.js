@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import StarRating from './StarRating'
+import {useHistory, Link} from "react-router-dom";
 
 function MakePost ({ handleAddPost, makePostDisplay, setMakePostDisplay }) {
   const [content, setContent] = useState('')
@@ -10,6 +11,12 @@ function MakePost ({ handleAddPost, makePostDisplay, setMakePostDisplay }) {
   const [search, setSearch] = useState('')
   const [showStars, setShowStars] = useState(false)
   const [rating, setRating] = useState(null)
+  const history = useHistory();
+
+  const handleReroute = () => {
+    console.log("Reroute!")
+    history.push("/");
+    }
 
   useEffect(() => {
     fetch('/me').then(response => {
@@ -99,6 +106,9 @@ function MakePost ({ handleAddPost, makePostDisplay, setMakePostDisplay }) {
   function handleWritePostClick () {
     setMakeFirstPostIsHidden(makeFirstPostIsHidden => !makeFirstPostIsHidden)
     setMakePostDisplay(makePostDisplay => !makePostDisplay)
+    handleReroute()
+
+
   }
 
   function buttonToShow () {
