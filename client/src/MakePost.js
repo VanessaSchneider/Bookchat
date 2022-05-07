@@ -50,7 +50,7 @@ function MakePost ({ handleAddPost, makePostDisplay, setMakePostDisplay }) {
       makeSecondPostHidden === true && show.name
     ) {
       return (
-        <h3 className='submit-forms'>
+        <h3 className='header'>
           You are writing a post about the show, {show.name}
         </h3>
       )
@@ -149,7 +149,6 @@ function MakePost ({ handleAddPost, makePostDisplay, setMakePostDisplay }) {
   return (
     <>
     <div>
-      {showSelected()} 
       {makeFirstPostIsHidden=== true ? (
           <div>
             <br>
@@ -163,6 +162,7 @@ function MakePost ({ handleAddPost, makePostDisplay, setMakePostDisplay }) {
           <h4 className = "header"> Search for the movie you would like to post about</h4>
           <form onSubmit={handleSearch}>
             <input
+            className ="submit-forms"
               type='text'
               placeholder='Movie Name'
               onChange={handleShow}
@@ -177,8 +177,22 @@ function MakePost ({ handleAddPost, makePostDisplay, setMakePostDisplay }) {
       ) : null}
 
       {makeSecondPostHidden &&show.name ? (
-        <div className ="below-nav2">
-          <div className='submit-forms'>
+        <div>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+            {showSelected()} 
+          <div>
             <form onSubmit={handleSubmit}>
               <input
                 className='post-size'
