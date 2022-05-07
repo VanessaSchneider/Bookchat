@@ -1,12 +1,24 @@
 import { useParams } from 'react-router-dom'
 import { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
 
-function TweetPage ({posts}) {
+function TweetPage () {
     const [post, setPost] =useState("")
+    const [user, setUser] = useState("")
     const { id } = useParams()
     const postData = {
         id:id
     }
+
+    useEffect(() => {
+        fetch('/me').then(response => {
+          if (response.ok) {
+            response.json().then(data => setUser(data))
+          }
+        })
+      }, [])
+    
+
     useEffect(() => {
         fetch('/getpost', {
           method: 'POST',
@@ -32,7 +44,10 @@ console.log(post.content)
 <div className='post-container'>
 {post.content}
 <br></br>
-{post.username}
+<div className='post-container'>
+          <Link to={`/users/${post.username}`}>{post.username}</Link>
+        </div>
+        {post.username ===user.username ? <button>Delete Post</button> : null}
 </div>
 </div>
     )

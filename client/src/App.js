@@ -162,7 +162,7 @@ function App () {
           <Messages />
         </Route>
         <Route exact path={`/posts/:id`}>
-          <TweetPage posts ={posts} />
+          <TweetPage user={user} />
         </Route>
       </Switch>
     </div>
