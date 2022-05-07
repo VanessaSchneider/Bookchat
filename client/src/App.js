@@ -125,7 +125,7 @@ function App () {
         <Route exact path='/'>
           <div>
             {user && makePostDisplay === false ? (
-              <h1 className='below-nav'>Welcome {user.username} </h1>
+              <h1 className = "below-nav">Welcome {user.username} </h1>
             ) : null}
           </div>
           {user && makePostDisplay === false ? (

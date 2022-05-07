@@ -1,12 +1,15 @@
 input {
   border-radius: 5px;
 }
-
 button {
   cursor: pointer;
   border-radius: 13px;
 }
 
+
+*
+{font-family: cursive;
+}
 .on {
   color: #000;
   background-color: Transparent;
@@ -36,9 +39,12 @@ button {
 }
 
 .center{
+  margin-top: 50%;
+  justify-content: center;
+  margin-right: 50%;
+  width: 100%;
+  height: 80%;
 
-  align-content: center;
-  position: flex;
 }
 
 

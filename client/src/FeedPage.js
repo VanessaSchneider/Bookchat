@@ -17,9 +17,7 @@ function FeedPage ({ posts, users }) {
         <div className='post-container-plus'>{post.content}</div>
         <div className='post-container'>
           <Link to={`/shows/${post.show.name}`}>#{post.show.name}</Link>
-          <br></br>
-          <br></br>
-          <br></br>
+        
         </div>
       </div>
     ))
