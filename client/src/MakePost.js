@@ -148,11 +148,20 @@ function MakePost ({ handleAddPost, makePostDisplay, setMakePostDisplay }) {
 
   return (
     <>
-      {showSelected()}
+    <div>
+      {showSelected()} 
       {makeFirstPostIsHidden=== true ? (
-        <div className ="below-nav2">
-          <h2>Search for the movie you would like to post about</h2>
-          <form className='submit-forms' onSubmit={handleSearch}>
+          <div>
+            <br>
+            </br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+          <h4 className = "header"> Search for the movie you would like to post about</h4>
+          <form onSubmit={handleSearch}>
             <input
               type='text'
               placeholder='Movie Name'
@@ -160,14 +169,15 @@ function MakePost ({ handleAddPost, makePostDisplay, setMakePostDisplay }) {
               value={search}
             />
             <button type='Submit'>
-              Submit
+              Search
             </button>
           </form>{' '}
+          <br></br>
         </div>
       ) : null}
 
       {makeSecondPostHidden &&show.name ? (
-        <div>
+        <div className ="below-nav2">
           <div className='submit-forms'>
             <form onSubmit={handleSubmit}>
               <input
@@ -196,6 +206,7 @@ function MakePost ({ handleAddPost, makePostDisplay, setMakePostDisplay }) {
         </div>
       ) : null}
       {buttonToShow()}
+      </div>
     </>
   )
 }

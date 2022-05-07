@@ -35,32 +35,30 @@ button {
 
 }
 
+.header{
+  margin-left: -41%;
+ 
+ }
+
 
 .below-nav{
   margin-top: 6%;
   justify-content: center;
   display:grid;
+  align-content: center;
  
  }
 
  .below-nav2{
-  margin-top: 15%;
+  margin-top: 50%;
   justify-content: center;
-  display:grid;
+  margin-right: 50%;
+  width: 100%;
+ height: 80%;
  
  }
 
 
-.star-button {
-  cursor: pointer;
-  border: none;
-}
-.on {
-  color: #000;
-}
-.off {
-  color: #ccc;
-}
 
 
 

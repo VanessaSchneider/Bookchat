@@ -51,6 +51,9 @@ return (
 
 
 <div>
+  <br>
+  </br>
+  <br></br>
 <div className = "post-container">
 
 <h2>{show.name}</h2>

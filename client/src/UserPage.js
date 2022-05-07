@@ -46,6 +46,11 @@ post = user.posts.map((post)=><div><div className = "post-container" >
 return (
 <div>
     {/* <AddFriend user={user}/> */}
+    <br>
+    </br>
+    <br></br>
+    <br></br>
+    <br></br>
     <div className = "post-container">
         <img className = "user-feed-image" src = {user.photo}></img>
        </div>
