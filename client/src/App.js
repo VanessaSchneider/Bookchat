@@ -50,15 +50,25 @@ function App () {
       .then(data => (user.username ? setUser(data) : null))
   }
 
-  function handleDeleteUser (id) {
-    const updatedUsers = profiles.filter(p => p.id !== id)
-    setProfiles(updatedUsers)
-  }
 
   function handleAddPost (newPost) {
     setPosts([newPost, ...posts])
   }
+  function handleDeletePost(id){
+    const updatedPosts = posts.filter(post => post.id !== id)
+    setPosts(updatedPosts)
+  }
 
+
+
+
+
+
+
+
+
+
+  
   useEffect(() => {
     fetch('/posts')
       .then(res => res.json())
@@ -162,7 +172,7 @@ function App () {
           <Messages />
         </Route>
         <Route exact path={`/posts/:id`}>
-          <TweetPage user={user} />
+          <TweetPage user={user} handleDeletePost={handleDeletePost} />
         </Route>
       </Switch>
     </div>

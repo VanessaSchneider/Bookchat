@@ -1,10 +1,11 @@
 import { useParams } from 'react-router-dom'
 import { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 
-function TweetPage () {
+function TweetPage ({handleDeletePost}) {
     const [post, setPost] =useState("")
     const [user, setUser] = useState("")
+    const history = useHistory()
     const { id } = useParams()
     const postData = {
         id:id
@@ -32,13 +33,37 @@ function TweetPage () {
       }, [])
     
 
+      function handleDelete(){
+        
+        fetch(`/posts/${post.id}`, {
+          method: "DELETE",
+        })
+          .then(() => console.log("deleted!"));
+          handleDeletePost(post.id)
+          toDelete(post.id)
+
+          alert("You have deleted the post") 
+}
+
+const handleReroute = () => {
+    console.log('Reroute!')
+    history.push('/')
+  }
 
 
-console.log(post)
-console.log(id)
-console.log(post.content)
+
+function toDelete(id)
+{
+    setPost(null)
+     handleReroute()
+
+
+}
+
+
     return(
 <div>
+{post? <div>
     <br></br>
     <br></br>
 <div className='post-container'>
@@ -47,8 +72,14 @@ console.log(post.content)
 <div className='post-container'>
           <Link to={`/users/${post.username}`}>{post.username}</Link>
         </div>
-        {post.username ===user.username ? <button>Delete Post</button> : null}
-</div>
+        {post.username ===user.username ? <button onClick= {handleDelete}>Delete Post</button> : null}
+        </div> 
+</div> : <div>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <h3> Post was deleted!</h3></div>}
 </div>
     )
 }
