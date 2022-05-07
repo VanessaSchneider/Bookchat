@@ -192,7 +192,7 @@ function MakePost ({ handleAddPost, makePostDisplay, setMakePostDisplay }) {
           <br></br>
           <br></br>
             {showSelected()} 
-          <div>
+          <div className = "header2">
             <form onSubmit={handleSubmit}>
               <input
                 className='post-size'
@@ -215,6 +215,7 @@ function MakePost ({ handleAddPost, makePostDisplay, setMakePostDisplay }) {
             ) : null}
           </div>
           <div>
+            <br></br>
             <button onClick={reset}>Don't Make a Post </button>
           </div>
         </div>
