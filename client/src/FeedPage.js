@@ -6,12 +6,13 @@ function FeedPage ({ posts, users }) {
   if (posts && posts.length !== 0) {
     post = posts.map(post => (
       <div>
-        <div className='post-container'>
+        <div className='user-feed-container '>
           {post.user.photo ? (
-            <img className='feedSize' src={post.user.photo}></img>
+            <div>
+            <img className='feedSize' src={post.user.photo}></img> </div>
           ) : null}
-        </div>
-        <div className='post-container'>
+     
+        <div className='inline'>
           <Link to={`/users/${post.user.username}`}>{post.user.username}</Link>
         </div>
         <div className='post-container-plus'>
@@ -22,7 +23,7 @@ function FeedPage ({ posts, users }) {
           </div>
         <div className='post-container'>
           <Link to={`/shows/${post.show.name}`}>#{post.show.name}</Link>
-        
+        </div>
         </div>
       </div>
     ))

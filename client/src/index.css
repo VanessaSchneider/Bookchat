@@ -134,7 +134,13 @@ button {
   height: 78px;
 }
 
+.inline{
+  background-color: white;
+  display: grid;
+  justify-content: center;
 
+
+}
 
 
 .post-size2 {
@@ -151,8 +157,8 @@ button {
 }
 
 .user-feed-image {
-  height: 80px;
-  width: 80px;
+  height: 200px;
+  width: 200px;
   border-radius: 100%;
 }
 
@@ -163,6 +169,6 @@ button {
 .size{
   height: 550px;
   width: 550px;
-  margin-left: 32%;
+  margin-left: 30%;
   border-radius: 100%;
 }

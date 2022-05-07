@@ -6,6 +6,7 @@ class CreatePosts < ActiveRecord::Migration[6.1]
       t.string :username
       t.integer :show_id
       t.string :show_name
+      t.string :image
   
 
       t.timestamps
