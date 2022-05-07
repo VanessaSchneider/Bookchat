@@ -54,7 +54,7 @@ function Signup({ login }) {
     }
 
     const signupBox = (
-      <div>
+      <div className= "signup">
           <form onSubmit={handleSignup}>
             <div>
               <input type ="text" value={username} onChange={(e) => setUsername(e.target.value)} placeholder="username"/>

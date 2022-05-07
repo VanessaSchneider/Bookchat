@@ -96,9 +96,10 @@ useEffect(() => {
     <div>
       <div >
         <div>
+      <nav className ="nav">
       {user ? null : <Signup onLogin={setUser} login={login} /> }
-      <nav className="nav-container">
       {user ? <Logout handleLogout={handleLogout}/> : <Login onLogin={setUser}/> }
+      {user ? <MakePost makePostDisplay={makePostDisplay} setMakePostDisplay={setMakePostDisplay} handleAddPost={handleAddPost} user={user} setUser={setUser} /> : null}
       {/* {user && location.pathname !=="/messages" ? <Link to="/messages">
     <button >Messages</button>
     </Link>: null} */}
@@ -116,9 +117,8 @@ useEffect(() => {
       <Switch>
       <Route exact path="/">
         <div>
-      {user ? <h1 className ="welcome">Welcome {user.username} </h1> : null}
+      {user && makePostDisplay ===false ? <h1 className ="below-nav">Welcome {user.username} </h1> : null}
       </div>
-      {user ? <MakePost makePostDisplay={makePostDisplay} setMakePostDisplay={setMakePostDisplay} handleAddPost={handleAddPost} user={user} setUser={setUser} /> : null}
       {user && makePostDisplay === false? <FeedPage user={user} setUser={setUser} posts={posts} users={users} /> : null}
       </Route>
       <Route exact path="/MyProfile">

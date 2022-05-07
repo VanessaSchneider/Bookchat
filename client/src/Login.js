@@ -27,7 +27,7 @@ function Login ({ onLogin, fetchProfiles }){
     //   
     
     const loginBox = (
-        <div>
+        <div className = "signup">
             <div>
                 <form onSubmit={handleSubmit}>
                     <div>

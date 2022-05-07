@@ -136,7 +136,7 @@ function MakePost ({ handleAddPost, makePostDisplay, setMakePostDisplay }) {
     setMakeFirstPostIsHidden(makeFirstPostIsHidden => true)
     setShow('')
     setMakePostDisplay(makePostDisplay => true)
-    alert(show.error)
+    alert("Movie not found, try again")
   }
 
 
@@ -150,7 +150,7 @@ function MakePost ({ handleAddPost, makePostDisplay, setMakePostDisplay }) {
     <>
       {showSelected()}
       {makeFirstPostIsHidden=== true ? (
-        <div className='submit-forms'>
+        <div className ="below-nav2">
           <h2>Search for the movie you would like to post about</h2>
           <form className='submit-forms' onSubmit={handleSearch}>
             <input
@@ -159,7 +159,7 @@ function MakePost ({ handleAddPost, makePostDisplay, setMakePostDisplay }) {
               onChange={handleShow}
               value={search}
             />
-            <button className='submit-forms' type='Submit'>
+            <button type='Submit'>
               Submit
             </button>
           </form>{' '}

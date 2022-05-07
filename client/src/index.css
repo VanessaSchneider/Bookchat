@@ -1,5 +1,59 @@
 button {
   cursor: pointer;
+  border-radius: 13px;
+}
+.on {
+  color: #000;
+  background-color: Transparent;
+  border: none;
+}
+.off {
+  color: #ccc;
+  background-color: Transparent;
+  border: none;
+}
+
+.nav{
+  position:fixed;
+  top:0;
+  left: 0;
+  width: 100%;
+  background-color: navy;
+  height:40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  font-size: calc(10px + 2vmin);
+  z-index: 2;
+  height: 48px;
+
+}
+
+
+.signup{
+ margin-top: 200%;
+
+}
+
+
+.below-nav{
+  margin-top: 6%;
+  justify-content: center;
+  display:grid;
+ 
+ }
+
+ .below-nav2{
+  margin-top: 15%;
+  justify-content: center;
+  display:grid;
+ 
+ }
+
+
+.star-button {
+  cursor: pointer;
+  border: none;
 }
 .on {
   color: #000;
@@ -7,6 +61,7 @@ button {
 .off {
   color: #ccc;
 }
+
 
 
 .feedSize
