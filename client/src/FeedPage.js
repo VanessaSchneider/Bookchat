@@ -1,10 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 function FeedPage ({ posts, users }) {
-
-
-
-
   console.log('users', users)
   let post = []
   if (posts && posts.length !== 0) {
@@ -25,7 +21,6 @@ function FeedPage ({ posts, users }) {
           <br></br>
           <br></br>
         </div>
-       
       </div>
     ))
   } else {

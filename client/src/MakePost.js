@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import StarRating from './StarRating'
-import {useHistory, Link} from "react-router-dom";
+import { useHistory, Link } from 'react-router-dom'
 
 function MakePost ({ handleAddPost, makePostDisplay, setMakePostDisplay }) {
   const [content, setContent] = useState('')
@@ -11,12 +11,12 @@ function MakePost ({ handleAddPost, makePostDisplay, setMakePostDisplay }) {
   const [search, setSearch] = useState('')
   const [showStars, setShowStars] = useState(false)
   const [rating, setRating] = useState(null)
-  const history = useHistory();
+  const history = useHistory()
 
   const handleReroute = () => {
-    console.log("Reroute!")
-    history.push("/");
-    }
+    console.log('Reroute!')
+    history.push('/')
+  }
 
   useEffect(() => {
     fetch('/me').then(response => {
@@ -45,16 +45,16 @@ function MakePost ({ handleAddPost, makePostDisplay, setMakePostDisplay }) {
       body: JSON.stringify(searchData)
     })
       .then(r => r.json())
-      .then((show) => (show.name ?setShow(show) : reset2()))
-  setMakeSecondPostHidden(makeSecondPostHidden => !makeSecondPostHidden)
- setMakeFirstPostIsHidden(makeFirstPostIsHidden => !makeFirstPostIsHidden )
+      .then(show => (show.name ? setShow(show) : reset2()))
+    setMakeSecondPostHidden(makeSecondPostHidden => !makeSecondPostHidden)
+    setMakeFirstPostIsHidden(makeFirstPostIsHidden => !makeFirstPostIsHidden)
     setSearch('')
   }
 
   function showSelected () {
     if (
       (show.name && makeFirstPostIsHidden === true) ||
-      makeSecondPostHidden === true && show.name
+      (makeSecondPostHidden === true && show.name)
     ) {
       return (
         <h3 className='header'>
@@ -107,8 +107,6 @@ function MakePost ({ handleAddPost, makePostDisplay, setMakePostDisplay }) {
     setMakeFirstPostIsHidden(makeFirstPostIsHidden => !makeFirstPostIsHidden)
     setMakePostDisplay(makePostDisplay => !makePostDisplay)
     handleReroute()
-
-
   }
 
   function buttonToShow () {
@@ -146,10 +144,8 @@ function MakePost ({ handleAddPost, makePostDisplay, setMakePostDisplay }) {
     setMakeFirstPostIsHidden(makeFirstPostIsHidden => true)
     setShow('')
     setMakePostDisplay(makePostDisplay => true)
-    alert("Movie not found, try again")
+    alert('Movie not found, try again')
   }
-
-
 
   function showRating () {
     setShowStars(showStars => !showStars)
@@ -158,78 +154,84 @@ function MakePost ({ handleAddPost, makePostDisplay, setMakePostDisplay }) {
 
   return (
     <>
-    <div>
-      {makeFirstPostIsHidden=== true ? (
+      <div>
+        {makeFirstPostIsHidden === true ? (
           <div>
-            <br>
-            </br>
             <br></br>
             <br></br>
             <br></br>
             <br></br>
             <br></br>
             <br></br>
-          <h4 className = "header"> Search for the movie you would like to post about</h4>
-          <form onSubmit={handleSearch}>
-            <input
-            className ="submit-forms"
-              type='text'
-              placeholder='Movie Name'
-              onChange={handleShow}
-              value={search}
-            />
-            <button type='Submit'>
-              Search
-            </button>
-          </form>{' '}
-          <br></br>
-        </div>
-      ) : null}
-
-      {makeSecondPostHidden &&show.name ? (
-        <div>
-          <br></br>
-          <br></br>
-          <br></br>
-          <br></br>
-          <br></br>
-          <br></br>
-          <br></br>
-          <br></br>
-          <br></br>
-          <br></br>
-          <br></br>
-          <br></br>
-          <br></br>
-            {showSelected()} 
-          <div className = "header2">
-            <form onSubmit={handleSubmit}>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <h4 className='header'>
+              {' '}
+              Search for the movie you would like to post about
+            </h4>
+            <form onSubmit={handleSearch}>
               <input
-                className='post-size'
+                className='submit-forms'
                 type='text'
-                placeholder='Write your post'
-                onChange={handlePost}
-                value={content}
+                placeholder='Movie Name'
+                onChange={handleShow}
+                value={search}
               />
-              <button className='button' type='submit'>
-                Submit
-              </button>
-            </form>
+              <button type='Submit'>Search</button>
+            </form>{' '}
             <br></br>
-            <button onClick={showRating} className ="post-size2">
-              {showStars ? "Don't Rate Show" : 'Rate the show!'}{' '}
-            </button>
-            {showStars ? (
-              <StarRating rating={rating} setRating={setRating} />
-            ) : null}
           </div>
+        ) : null}
+
+        {makeSecondPostHidden && show.name ? (
           <div>
             <br></br>
-            <button onClick={reset}>Don't Make a Post </button>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            {showSelected()}
+            <div className='header2'>
+              <form onSubmit={handleSubmit}>
+                <input
+                  className='post-size'
+                  type='text'
+                  placeholder='Write your post'
+                  onChange={handlePost}
+                  value={content}
+                />
+                <button className='button' type='submit'>
+                  Submit
+                </button>
+              </form>
+              <br></br>
+              <button onClick={showRating} className='post-size2'>
+                {showStars ? "Don't Rate Show" : 'Rate the show!'}{' '}
+              </button>
+              {showStars ? (
+                <div>
+                  <br></br>
+                  <StarRating rating={rating} setRating={setRating} />
+                </div>
+              ) : null}
+            </div>
+            <div>
+              <br></br>
+              <button onClick={reset}>Don't Make a Post </button>
+            </div>
           </div>
-        </div>
-      ) : null}
-      {buttonToShow()}
+        ) : null}
+        {buttonToShow()}
       </div>
     </>
   )

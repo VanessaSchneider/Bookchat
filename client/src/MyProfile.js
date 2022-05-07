@@ -1,22 +1,5 @@
-function MyProfile ()
-
-{
-
-
-
-
-
-return(
-
-    <div>
-
-    </div>
-)
-
-
-
-
-
+function MyProfile () {
+  return <div></div>
 }
 
-export default MyProfile;
+export default MyProfile
