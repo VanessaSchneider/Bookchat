@@ -12,6 +12,7 @@ import UserPage from './UserPage'
 import ShowPage from './ShowPage'
 import Messages from './Messages'
 import Vote from './Vote'
+import photo from './photo.jpeg'
 
 function App () {
   const [user, setUser] = useState(null)
@@ -119,6 +120,8 @@ function App () {
           </nav>
           <br></br>
          {user?null:<h1 className="below-nav">Read & Talk</h1>}
+         {user?null:<img src = {photo} className="size"></img>}
+
         </div>
       </div>
       <Switch>

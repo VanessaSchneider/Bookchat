@@ -154,3 +154,10 @@ button {
 .welcome {
   margin-left: 610px;
 }
+
+.size{
+  height: 550px;
+  width: 550px;
+  margin-left: 32%;
+  border-radius: 100%;
+}
