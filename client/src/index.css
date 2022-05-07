@@ -1,27 +1,31 @@
-
+input {
+  border-radius: 5px;
+}
 
 button {
   cursor: pointer;
   border-radius: 13px;
 }
+
 .on {
   color: #000;
   background-color: Transparent;
   border: none;
 }
+
 .off {
   color: #ccc;
   background-color: Transparent;
   border: none;
 }
 
-.nav{
-  position:fixed;
-  top:0;
+.nav {
+  position: fixed;
+  top: 0;
   left: 0;
   width: 100%;
   background-color: navy;
-  height:40px;
+  height: 40px;
   display: flex;
   align-items: center;
   justify-content: space-around;
@@ -31,55 +35,64 @@ button {
 
 }
 
+.center{
 
-.signup{
- margin-top: 200%;
+  align-content: center;
+  position: flex;
+}
+
+
+.signup {
+  margin-top: 200%;
 
 }
 
 
-.login{
+
+
+.login {
   margin-top: 100%;
- 
- }
 
-.header{
+}
+
+.header {
   margin-left: -42%;
- 
- }
 
- .header2{
+}
+
+.header2 {
   margin-left: -17%;
- 
- }
 
-.below-nav{
+}
+
+.below-nav {
   margin-top: 6%;
   justify-content: center;
-  display:grid;
+  display: grid;
   align-content: center;
- 
- }
 
- .below-nav2{
+}
+
+.below-nav2 {
   margin-top: 50%;
   justify-content: center;
   margin-right: 50%;
   width: 100%;
- height: 80%;
- 
- }
+  height: 80%;
+
+}
 
 
 
 
 
-.feedSize
-{width: 60px;
-height: 60px;
-border-radius: 100%;}
+.feedSize {
+  width: 60px;
+  height: 60px;
+  border-radius: 100%;
+}
 
-.submit-forms{
+.submit-forms {
 
   justify-content: center;
   display: grid;
@@ -102,26 +115,20 @@ border-radius: 100%;}
   display: grid;
   justify-content: center;
   gap: 13px;
-
 }
 
 
-.post-size{
-min-width:  40%;
-height: 78px;
-
-
+.post-size {
+  min-width: 40%;
+  height: 78px;
 }
 
 
 
 
-.post-size2{
-  margin-left:12%;
- 
-  
-  
-  }
+.post-size2 {
+  margin-left: 12%;
+}
 
 
 .user-feed-container {
@@ -132,14 +139,12 @@ height: 78px;
   justify-content: center;
 }
 
-.user-feed-image{
-height: 80px;
-width: 80px;
-border-radius: 100%;
+.user-feed-image {
+  height: 80px;
+  width: 80px;
+  border-radius: 100%;
 }
 
-.welcome{
+.welcome {
   margin-left: 610px;
-  }
-  
-  
+}

@@ -117,6 +117,8 @@ function App () {
               </Link>
             ) : null}
           </nav>
+          <br></br>
+         {user?null:<h1 className="below-nav">Read & Talk</h1>}
         </div>
       </div>
       <Switch>
