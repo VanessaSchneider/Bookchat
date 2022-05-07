@@ -24,15 +24,14 @@ class PostsController < ApplicationController
         end
       end
 
-    #   def update
-    #     user = User.find_by!(id: params[:id])
-    #       user.update(user_params)
-    #       if user.valid?
-    #       render json: user, status: :ok
-    #       else 
-    #       render json: { errors: user.errors.full_messages }, status: :unprocessable_entity
-    #       end
-    #     end
+      def getpost
+        post = Post.find_by!(id: params[:id])
+          if post.valid?
+          render json: post, status: :ok
+          else 
+          render json: { errors: post.errors.full_messages }, status: :unprocessable_entity
+          end
+        end
 
     def destroy
         post = Post.find(params[:id])
