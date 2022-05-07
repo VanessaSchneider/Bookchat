@@ -7,6 +7,13 @@ button {
 }
 
 
+.button2 {
+  cursor: pointer;
+  background-color: Transparent;
+  border: none;
+
+}
+
 *
 {font-family: cursive;
 }
@@ -49,11 +56,9 @@ button {
 
 
 .signup {
-  margin-top: 200%;
+  margin-top: 230%;
 
 }
-
-
 
 
 .login {

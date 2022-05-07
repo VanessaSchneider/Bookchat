@@ -12,6 +12,7 @@ import UserPage from './UserPage'
 import ShowPage from './ShowPage'
 import Messages from './Messages'
 import Vote from './Vote'
+import TweetPage from './TweetPage'
 import photo from './photo.jpeg'
 
 function App () {
@@ -159,6 +160,9 @@ function App () {
 
         <Route exact path='/Messages'>
           <Messages />
+        </Route>
+        <Route exact path={`/posts/:id`}>
+          <TweetPage users={users} />
         </Route>
       </Switch>
     </div>

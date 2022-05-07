@@ -8,14 +8,11 @@ class PostsController < ApplicationController
 
 
 
-    # def show
-    #     post = Post.find_by(id: session[:user_id])
-    #     if user
-    #       render json: user
-    #     else
-    #       render json: { error: "Not authorized" }, status: :unauthorized
-    #     end
-    #   end
+
+    def show
+      post= Post.find(params[:id])
+      render json: post, status: :ok
+  end
 
 
     def create
