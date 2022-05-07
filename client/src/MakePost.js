@@ -216,9 +216,8 @@ function MakePost ({ handleAddPost, makePostDisplay, setMakePostDisplay }) {
               </button>
             </form>
             <br></br>
-            <button onClick={showRating}>
-              {' '}
-              {showStars ? "Don't Rate Show" : 'Rate show out of 5 stars!'}{' '}
+            <button onClick={showRating} className ="post-size2">
+              {showStars ? "Don't Rate Show" : 'Rate the show!'}{' '}
             </button>
             {showStars ? (
               <StarRating rating={rating} setRating={setRating} />

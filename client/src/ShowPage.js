@@ -56,8 +56,9 @@ return (
   <br></br>
 <div className = "post-container">
 
-<h2>{show.name}</h2>
-<h4>Show rating based on users voting </h4>
+<h2 className = "post-container">{show.name}</h2>
+<h4 className = "post-container">Show rating based on users voting </h4>
+<div className = "post-container">
 <div className="star-rating">
         {[...Array(5)].map((star, index) => {
           index += 1;
@@ -71,6 +72,7 @@ return (
             </button>
           );
         })}
+      </div>
       </div>
 
 
