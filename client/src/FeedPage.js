@@ -22,7 +22,7 @@ function FeedPage ({ posts, users }) {
       </div>
     ))
   } else {
-    return null
+    null
   }
 
   return <div>{post}</div>
