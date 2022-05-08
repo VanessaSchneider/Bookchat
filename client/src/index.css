@@ -106,16 +106,23 @@ button {
 
 
 .feedSize {
-  width: 60px;
-  height: 60px;
+  width: 90px;
+  height: 90px;
   border-radius: 100%;
-  margin-left: -10%;
+  margin-right: 12%;
 }
 
 .submit-forms {
 
   justify-content: center;
   display: grid;
+}
+
+.tweetimage {
+  width: 100px;
+  height: 100px;
+  border-radius: 100%;
+  margin-left: -9%;
 }
 
 
