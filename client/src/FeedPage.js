@@ -1,7 +1,13 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
+import Comments from './Comments'
 function FeedPage ({ posts, users }) {
-  console.log('users', users)
+  const [showComments, setShowComments]=useState(false)
+
+  function ShowTheComments(){
+setShowComments((showComments)=>!showComments)
+  }
+
   let post = []
   if (posts && posts.length !== 0) {
     post = posts.map(post => (
@@ -24,14 +30,17 @@ function FeedPage ({ posts, users }) {
         <div className='post-container'>
           <Link to={`/shows/${post.show.name}`}>#{post.show.name}</Link>
         </div>
-        <button className = "button2">Show Comments</button>
+        <button className ="button2"
+        onClick={ShowTheComments}
+        >Show Comments</button>
+        {showComments ? <Comments/> : null}
         </div>
       </div>
     ))
   } else {
     null
   }
-
+console.log(showComments)
   return <div className ='user-feed-container'>
   <div className ='user-feed-container'>{post}</div>
 
