@@ -7,15 +7,14 @@ function CommentContainer({post}) {
 console.log(post)
     let comment = []
 if (post.comments)
-comment = post.comments.map((comment)=> <div className = "post-container">{comment.content}<br></br>
-<div className = "post-container">
-    
-    
-<Link to={`/users/${comment.username}`}>
-              {comment.username}
+comment = post.comments.map((comment)=> <div className = "post-container"> 
+<div className = "comment-format">
+<Link to={`/users/${comment.username}`}>{comment.username}
             </Link>
+<div className = "post-container">
+{comment.content}
 
-
+            </div>
 </div></div>)
 
   return (

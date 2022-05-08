@@ -6,16 +6,14 @@ button {
   border-radius: 13px;
 }
 
-
 .button2 {
   cursor: pointer;
   background-color: Transparent;
   border: none;
-
 }
 
-*
-{font-family: cursive;
+* {
+  font-family: cursive;
 }
 .on {
   color: #000;
@@ -42,38 +40,30 @@ button {
   font-size: calc(10px + 2vmin);
   z-index: 2;
   height: 48px;
-
 }
 
-.center{
+.center {
   margin-top: 50%;
   justify-content: center;
   margin-right: 50%;
   width: 100%;
   height: 80%;
-
 }
-
 
 .signup {
   margin-top: 230%;
-
 }
-
 
 .login {
   margin-top: 100%;
-
 }
 
 .header {
   margin-left: -47%;
-
 }
 
 .header2 {
   margin-left: -17%;
-
 }
 
 .below-nav {
@@ -81,7 +71,6 @@ button {
   justify-content: center;
   display: grid;
   align-content: center;
-
 }
 
 .below-nav2 {
@@ -90,31 +79,29 @@ button {
   margin-right: 50%;
   width: 100%;
   height: 80%;
-
 }
 
-.writepost{
+.writepost {
   position: -webkit-sticky;
   margin-left: 45%;
-margin-top: -3%;
+  margin-top: -3%;
 }
 
-.username
-{position: sticky;
+.username {
+  position: sticky;
   margin-top: -4%;
   margin-left: 4%;
 }
 
-.post-space
-{position: sticky;
+.post-space {
+  position: sticky;
   margin-top: 1.5%;
 }
 
-.search{
-margin-left: -18%;
-
+.search {
+  margin-left: -18%;
 }
-.book-size{
+.book-size {
   height: 160px;
   width: 120px;
   margin-left: 18%;
@@ -129,7 +116,6 @@ margin-left: -18%;
 }
 
 .submit-forms {
-
   justify-content: center;
   display: grid;
 }
@@ -146,16 +132,14 @@ margin-left: -18%;
   border-radius: 1em;
   display: grid;
   justify-content: center;
-  margin-top: 1%;}
-
-
+  margin-top: 1%;
+}
 
 .post-container {
   background-color: white;
   border-radius: 1em;
   display: grid;
   justify-content: center;
-
 }
 
 .post-container-plus {
@@ -166,20 +150,16 @@ margin-left: -18%;
   gap: 13px;
 }
 
-
 .post-size {
   min-width: 40%;
   height: 78px;
 }
 
-.inline{
+.inline {
   background-color: white;
   display: grid;
   justify-content: center;
-
-
 }
-
 
 .post-size2 {
   margin-left: 12%;
@@ -212,19 +192,16 @@ margin-left: -18%;
   margin-left: 610px;
 }
 
-.size{
+.size {
   height: 550px;
   width: 550px;
   margin-left: 30%;
   border-radius: 100%;
 }
 
-.delete-post{
-margin-left: 47%;
-
-
+.delete-post {
+  margin-left: 47%;
 }
-
 
 .comments-container {
   display: flex;
@@ -233,17 +210,18 @@ margin-left: 47%;
   padding-left: 70px;
 }
 
-.comments-headline
-{
-  margin-left : 46.5%;
-
-
+.comments-headline {
+  margin-left: 46.5%;
 }
 
-
-.side-nav{
+.side-nav {
   position: absolute;
   margin-top: -10%;
   margin-left: 10%;
+}
+
+.comment-format{
+margin-top: 12%;
+
 
 }
