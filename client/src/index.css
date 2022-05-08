@@ -184,7 +184,15 @@ margin-left: -18%;
 .post-size2 {
   margin-left: 12%;
 }
+.post-size3 {
+  margin-left: 36%;
+}
 
+.post-size4 {
+  min-width: 40%;
+  height: 78px;
+  margin-left: 11%;
+}
 
 .user-feed-container {
   text-align: center;
@@ -223,4 +231,11 @@ margin-left: 47%;
   border-top: thin solid rgb(143, 142, 142);
   gap: 10px;
   padding-left: 70px;
+}
+
+.comments-headline
+{
+  margin-left : 46.5%;
+
+
 }

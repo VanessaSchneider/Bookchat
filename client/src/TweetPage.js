@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { Link, useHistory } from "react-router-dom";
 import CommentForm from './CommentForm'
+import CommentContainer from './CommentContainer'
 
 function TweetPage({ handleDeletePost, commentForm }) {
   const [post, setPost] = useState("");
@@ -66,13 +67,16 @@ function TweetPage({ handleDeletePost, commentForm }) {
           <div className="post-container">
             {post.content}
             </div>
-            <br></br>
-            {commentForm ?<div className = "submit-forms"> <CommentForm postData ={postData} user={user}/> </div>: null}
             {post.username === user.username ? (
               <button onClick={handleDelete}
               className = "delete-post"
               >Delete Post</button>
             ) : null}
+            <br></br>
+            {commentForm ?<div className = "submit-forms"> <br></br> <br></br> <br></br> <CommentForm postData ={postData} user={user}/> </div>: null}
+            {commentForm? null :<div>
+            <h3 className = "comments-headline">Comments</h3>
+               <CommentContainer post={post}/></div>}
         </div>
       ) : (
         <div>

@@ -7,9 +7,13 @@ function CommentForm ({postData, user}) {
   console.log(user)
 function handleSubmit(e){
   e.preventDefault()
-  const commentData = { content: content,
+  const commentData = { 
+                      post_id : parseInt(postData.id),
                       user_id : user.id,
-                      post_id : parseInt(postData.id)}
+                      content: content,
+                      username : user.username
+                    
+                    }
   fetch('/comments', {
     method: 'POST',
     headers: {
@@ -35,15 +39,18 @@ return(
 <div className='header2'>
               <form onSubmit={handleSubmit}>
                 <input
-                  className='post-size'
+                  className='post-size4'
                   type='text'
                   placeholder='Write your comment'
                   onChange={handleComment}
                   value={content}
                 />
+                <br></br>
+                <div className = 'post-size3'>
                 <button className='button' type='submit'>
                   Submit
                 </button>
+                </div>
               </form>
               </div>
 
