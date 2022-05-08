@@ -4,7 +4,6 @@ import { useState, useEffect } from 'react'
 import Signup from './Signup'
 import Logout from './Logout.js'
 import MyProfile from './MyProfile.js'
-// import NavBar from './components/NavBar.js';
 import { Route, Switch, useHistory, Link, useLocation } from 'react-router-dom'
 import FeedPage from './FeedPage.js'
 import MakePost from './MakePost.js'
@@ -22,6 +21,7 @@ function App () {
   const history = useHistory()
   const location = useLocation()
   const [makePostDisplay, setMakePostDisplay] = useState(false)
+  const [commentForm, setCommentForm] = useState(false)
 
   const handleReroute = () => {
     console.log('Reroute!')
@@ -50,25 +50,14 @@ function App () {
       .then(data => (user.username ? setUser(data) : null))
   }
 
-
   function handleAddPost (newPost) {
     setPosts([newPost, ...posts])
   }
-  function handleDeletePost(id){
+  function handleDeletePost (id) {
     const updatedPosts = posts.filter(post => post.id !== id)
     setPosts(updatedPosts)
   }
 
-
-
-
-
-
-
-
-
-
-  
   useEffect(() => {
     fetch('/posts')
       .then(res => res.json())
@@ -130,16 +119,15 @@ function App () {
             ) : null}
           </nav>
           <br></br>
-         {user?null:<h1 className="below-nav">Read & Talk</h1>}
-         {user?null:<img src = {photo} className="size"></img>}
-
+          {user ? null : <h1 className='below-nav'>Read & Talk</h1>}
+          {user ? null : <img src={photo} className='size'></img>}
         </div>
       </div>
       <Switch>
         <Route exact path='/'>
           <div>
             {user && makePostDisplay === false ? (
-              <h1 className = "below-nav">Welcome {user.username} </h1>
+              <h1 className='below-nav'>Welcome {user.username} </h1>
             ) : null}
           </div>
           {user && makePostDisplay === false ? (
@@ -148,6 +136,8 @@ function App () {
               setUser={setUser}
               posts={posts}
               users={users}
+              commentForm={commentForm}
+              setCommentForm={setCommentForm}
             />
           ) : null}
         </Route>
@@ -159,10 +149,18 @@ function App () {
           />
         </Route>
         <Route exact path={`/users/:username`}>
-          <UserPage users={users} />
+          <UserPage
+            users={users}
+            commentForm={commentForm}
+            setCommentForm={setCommentForm}
+          />
         </Route>
         <Route exact path={`/shows/:name`}>
-          <ShowPage users={users} />
+          <ShowPage
+            users={users}
+            commentForm={commentForm}
+            setCommentForm={setCommentForm}
+          />
         </Route>
         <Route exact path='/Vote'>
           <Vote />
