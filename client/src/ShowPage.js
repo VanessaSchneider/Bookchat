@@ -34,6 +34,11 @@ function ShowPage ({users}) {
           <button className = "button2"
           >{post.content}</button>
                 </Link>
+                <div className="post-container">
+            <Link to={`/posts/${post.id}`}>
+              <button className="button2">See Comments</button>
+            </Link>
+          </div>
                 <br></br>
           </div>
           </div>

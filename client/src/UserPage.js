@@ -32,9 +32,12 @@ function UserPage () {
           <button className = "button2"
           >{post.content}</button>
                 </Link>
-                <br></br>
           </div>
-
+          <div className="post-container">
+            <Link to={`/posts/${post.id}`}>
+              <button className="button2">See Comments</button>
+            </Link>
+          </div>
        
       </div>
     ))

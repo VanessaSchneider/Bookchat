@@ -65,7 +65,7 @@ function Signup ({ login }) {
         </div>
         <div>
           <input
-            type='text'
+            type='password'
             value={password}
             onChange={e => setPassword(e.target.value)}
             placeholder='password'
@@ -73,7 +73,7 @@ function Signup ({ login }) {
         </div>
         <div>
           <input
-            type='text'
+            type='password'
             value={passwordConfirmation}
             onChange={e => setPasswordConfirmation(e.target.value)}
             placeholder='password confirmation'

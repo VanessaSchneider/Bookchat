@@ -37,7 +37,7 @@ function Login ({ onLogin, fetchProfiles }) {
             ></input>
             <div className='mb-3'>
               <input
-                type='text'
+                type='password'
                 value={password}
                 onChange={e => setPassword(e.target.value)}
                 placeholder='Password'
