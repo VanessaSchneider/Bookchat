@@ -93,11 +93,16 @@ button {
 
 }
 
+.writepost{
+  position: -webkit-sticky;
+  margin-left: 40%;
+margin-top: -2%;
+}
 
 .username
 {position: sticky;
   margin-top: -4%;
-  margin-left: 3%;
+  margin-left: 4%;
 }
 
 .post-space

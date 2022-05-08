@@ -27,12 +27,19 @@ setShowComments((showComments)=>!showComments)
           >{post.content}</button>
                 </Link>
           </div>
+          <div className = "writepost"> 
+          <button
+          className ="button2"
+          >Comment on Post</button>
+        </div>
         <div className='post-container'>
           <Link to={`/shows/${post.show.name}`}>#{post.show.name}</Link>
         </div>
         <button className ="button2"
         onClick={ShowTheComments}
-        >Show Comments</button>
+        >{showComments? "Hide Comments" :
+          "Show Comments"}
+          </button>
         {showComments ? <Comments/> : null}
         </div>
       </div>
