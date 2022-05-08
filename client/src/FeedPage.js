@@ -23,7 +23,7 @@ function FeedPage({ posts, users, commentForm, setCommentForm }) {
           </div>
           <div className="writepost">
             <Link to={`/posts/${post.id}`}>
-              <button onClick={showCommentForm}>Make Comments</button>
+              <button onClick={showCommentForm}>Make Comment</button>
             </Link>
           </div>
           <div className="post-container2">

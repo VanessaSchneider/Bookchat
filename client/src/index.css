@@ -239,3 +239,11 @@ margin-left: 47%;
 
 
 }
+
+
+.side-nav{
+  position: absolute;
+  margin-top: -10%;
+  margin-left: 10%;
+
+}

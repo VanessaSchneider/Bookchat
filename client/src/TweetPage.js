@@ -4,7 +4,8 @@ import { Link, useHistory } from "react-router-dom";
 import CommentForm from './CommentForm'
 import CommentContainer from './CommentContainer'
 
-function TweetPage({ handleDeletePost, commentForm }) {
+
+function TweetPage({ handleDeletePost, setCommentForm, commentForm }) {
   const [post, setPost] = useState("");
   const [user, setUser] = useState("");
   const history = useHistory();
@@ -12,6 +13,11 @@ function TweetPage({ handleDeletePost, commentForm }) {
   const postData = {
     id: id,
   };
+
+  function handleGetForm(){
+    setCommentForm((commentForm)=>!commentForm)
+    
+    }
 
   useEffect(() => {
     fetch("/me").then((response) => {
@@ -72,6 +78,13 @@ function TweetPage({ handleDeletePost, commentForm }) {
               className = "delete-post"
               >Delete Post</button>
             ) : null}
+            <div className ="side-nav">
+            <button
+            onClick ={handleGetForm}
+            >{commentForm? "Don't Make a Comment":
+              
+              "Make a Comment"}</button>
+            </div>
             <br></br>
             {commentForm ?<div className = "submit-forms"> <br></br> <br></br> <br></br> <CommentForm postData ={postData} user={user}/> </div>: null}
             {commentForm? null :<div>
