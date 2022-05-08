@@ -170,7 +170,7 @@ function App () {
           <Messages />
         </Route>
         <Route exact path={`/posts/:id`}>
-          <TweetPage user={user} handleDeletePost={handleDeletePost} />
+          <TweetPage user={user} handleDeletePost={handleDeletePost} commentForm={commentForm} />
         </Route>
       </Switch>
     </div>

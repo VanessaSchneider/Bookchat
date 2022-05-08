@@ -1,8 +1,9 @@
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { Link, useHistory } from "react-router-dom";
+import CommentForm from './CommentForm'
 
-function TweetPage({ handleDeletePost }) {
+function TweetPage({ handleDeletePost, commentForm }) {
   const [post, setPost] = useState("");
   const [user, setUser] = useState("");
   const history = useHistory();
@@ -66,6 +67,7 @@ function TweetPage({ handleDeletePost }) {
             {post.content}
             </div>
             <br></br>
+            {commentForm ?<div className = "submit-forms"> <CommentForm/> </div>: null}
             {post.username === user.username ? (
               <button onClick={handleDelete}
               className = "delete-post"

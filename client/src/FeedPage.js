@@ -1,18 +1,10 @@
 import { useEffect, useState } from 'react'
 import { Link, useHistory } from 'react-router-dom'
-function FeedPage ({ posts, users }) {
-  const [commentForm, setCommentForm] = useState(false)
-  const history = useHistory()
-
-  const handleReroute = () => {
-    console.log('Reroute!')
-    history.push(`/posts/${post.id}`)
-  }
-
-
+function FeedPage ({ posts, users, commentForm, setCommentForm}) {
 
   function showCommentForm () {
-    handleReroute()
+    setCommentForm(commentForm=>true)
+
   }
 
   let post = []
@@ -39,6 +31,7 @@ function FeedPage ({ posts, users }) {
           <div className='writepost'>
           <Link to={`/posts/${post.id}`}>
               <button
+              onClick ={showCommentForm}
               >Make Comments</button>
             </Link>
           </div>
