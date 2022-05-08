@@ -8,7 +8,15 @@ console.log(post)
     let comment = []
 if (post.comments)
 comment = post.comments.map((comment)=> <div className = "post-container">{comment.content}<br></br>
-<div className = "post-container">{comment.username}</div></div>)
+<div className = "post-container">
+    
+    
+<Link to={`/users/${comment.username}`}>
+              {comment.username}
+            </Link>
+
+
+</div></div>)
 
   return (
     <div>
