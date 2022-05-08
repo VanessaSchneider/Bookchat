@@ -58,7 +58,7 @@ function MakePost ({ handleAddPost, makePostDisplay, setMakePostDisplay }) {
     ) {
       return (
         <h3 className='header'>
-          You are writing a post about the show, {show.name}
+          You are writing a post about the book, {show.name}
         </h3>
       )
     }
@@ -144,7 +144,7 @@ function MakePost ({ handleAddPost, makePostDisplay, setMakePostDisplay }) {
     setMakeFirstPostIsHidden(makeFirstPostIsHidden => true)
     setShow('')
     setMakePostDisplay(makePostDisplay => true)
-    alert('Movie not found, try again')
+    alert('Book not found, try again')
   }
 
   function showRating () {
@@ -169,13 +169,13 @@ function MakePost ({ handleAddPost, makePostDisplay, setMakePostDisplay }) {
             <br></br>
             <h4 className='header'>
               {' '}
-              Search for the movie you would like to post about
+              Search for the book you would like to post about
             </h4>
             <form onSubmit={handleSearch}>
               <input
-                className='submit-forms'
+                className='search'
                 type='text'
-                placeholder='Movie Name'
+                placeholder='Book Name'
                 onChange={handleShow}
                 value={search}
               />
@@ -216,7 +216,7 @@ function MakePost ({ handleAddPost, makePostDisplay, setMakePostDisplay }) {
               </form>
               <br></br>
               <button onClick={showRating} className='post-size2'>
-                {showStars ? "Don't Rate Show" : 'Rate the show!'}{' '}
+                {showStars ? "Don't Rate Book" : 'Rate the Book!'}{' '}
               </button>
               {showStars ? (
                 <div>

@@ -47,6 +47,7 @@ function ShowPage ({users}) {
       <br></br>
       <div className='post-container'>
         <h2 className='post-container'>{show.name}</h2>
+        <img img className = "book-size" src ={show.photo}></img>
         <h4 className='post-container'>Rating based on users voting </h4>
         <div className='post-container'>
           <div className='star-rating'>
