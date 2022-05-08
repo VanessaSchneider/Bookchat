@@ -67,7 +67,7 @@ function TweetPage({ handleDeletePost, commentForm }) {
             {post.content}
             </div>
             <br></br>
-            {commentForm ?<div className = "submit-forms"> <CommentForm/> </div>: null}
+            {commentForm ?<div className = "submit-forms"> <CommentForm postData ={postData} user={user}/> </div>: null}
             {post.username === user.username ? (
               <button onClick={handleDelete}
               className = "delete-post"

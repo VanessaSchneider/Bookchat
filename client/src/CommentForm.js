@@ -1,15 +1,31 @@
 import { useState, useEffect } from 'react'
 
-function CommentForm () {
+function CommentForm ({postData, user}) {
   const [content, setContent] = useState("")
 
-function handleSubmit(){
-  console.log(content)
+  console.log(postData)
+  console.log(user)
+function handleSubmit(e){
+  e.preventDefault()
+  const commentData = { content: content,
+                      user_id : user.id,
+                      post_id : parseInt(postData.id)}
+  fetch('/comments', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(commentData)
+  })
+    .then(r => r.json())
+    .then(comment => (console.log("comment", comment)))
+
+  setContent("")
 
 }
 
-function handleComment(){
-  setContent(content)
+function handleComment(e){
+  setContent(event.target.value)
 
 }
 
