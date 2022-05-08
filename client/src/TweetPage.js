@@ -8,6 +8,7 @@ import CommentContainer from './CommentContainer'
 function TweetPage({ handleDeletePost, setCommentForm, commentForm }) {
   const [post, setPost] = useState("");
   const [user, setUser] = useState("");
+  const [comments, setComments] = useState("")
   const history = useHistory();
   const { id } = useParams();
   const postData = {
@@ -39,6 +40,22 @@ function TweetPage({ handleDeletePost, setCommentForm, commentForm }) {
       .then((post) => setPost(post));
   }, []);
 
+  // useEffect(() => {
+  //   fetch("/getcomments", {
+  //     method: "POST",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //     },
+  //     body: JSON.stringify(postData),
+  //   })
+  //     .then((r) => r.json())
+  //     .then((comments) => setComments(comments));
+  // }, []);
+
+
+
+
+
   function handleDelete() {
     fetch(`/posts/${post.id}`, {
       method: "DELETE",
@@ -48,6 +65,9 @@ function TweetPage({ handleDeletePost, setCommentForm, commentForm }) {
 
     alert("You have deleted the post");
   }
+
+
+  console.log("comments", comments)
 
   const handleReroute = () => {
     console.log("Reroute!");

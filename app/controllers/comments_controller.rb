@@ -21,6 +21,13 @@ class CommentsController < ApplicationController
         end
       end
 
+      # def getcomments
+      #   comments = Comment.all
+      #   post_comments = comments.filter{|m|m.post_id == id}
+      #     render json: post_comments, status: :ok
+      #   end
+
+
   
         def comment_params
             params.permit(:post_id, :user_id, :content, :username)

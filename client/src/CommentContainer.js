@@ -4,7 +4,6 @@ import { Link, useHistory } from "react-router-dom";
 import CommentForm from './CommentForm'
 
 function CommentContainer({post}) {
-console.log(post)
     let comment = []
 if (post.comments)
 comment = post.comments.map((comment)=> <div className = "post-container"> 
