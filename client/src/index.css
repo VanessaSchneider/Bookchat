@@ -94,13 +94,22 @@ button {
 }
 
 
+.username
+{position: sticky;
+  margin-top: -4%;
+}
 
+.post-space
+{position: sticky;
+  margin-top: 1.5%;
+}
 
 
 .feedSize {
   width: 60px;
   height: 60px;
   border-radius: 100%;
+  margin-left: -10%;
 }
 
 .submit-forms {
