@@ -5,3 +5,4 @@ class Post < ApplicationRecord
 end
 
 
+

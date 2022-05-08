@@ -95,8 +95,8 @@ button {
 
 .writepost{
   position: -webkit-sticky;
-  margin-left: 40%;
-margin-top: -2%;
+  margin-left: 45%;
+margin-top: -3%;
 }
 
 .username
@@ -141,6 +141,12 @@ margin-left: -18%;
   margin-left: -9%;
 }
 
+.post-container2 {
+  background-color: white;
+  border-radius: 1em;
+  display: grid;
+  justify-content: center;
+  margin-top: 1%;}
 
 
 
