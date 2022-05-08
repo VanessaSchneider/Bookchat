@@ -67,7 +67,7 @@ button {
 }
 
 .header {
-  margin-left: -42%;
+  margin-left: -47%;
 
 }
 
@@ -97,6 +97,7 @@ button {
 .username
 {position: sticky;
   margin-top: -4%;
+  margin-left: 3%;
 }
 
 .post-space
@@ -115,6 +116,7 @@ margin-left: -18%;
 }
 
 .feedSize {
+  margin-top: -2%;
   width: 90px;
   height: 90px;
   border-radius: 100%;
@@ -202,4 +204,12 @@ margin-left: -18%;
 margin-left: 47%;
 
 
+}
+
+
+.comments-container {
+  display: flex;
+  border-top: thin solid rgb(143, 142, 142);
+  gap: 10px;
+  padding-left: 70px;
 }

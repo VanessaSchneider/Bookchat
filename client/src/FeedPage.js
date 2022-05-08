@@ -24,6 +24,7 @@ function FeedPage ({ posts, users }) {
         <div className='post-container'>
           <Link to={`/shows/${post.show.name}`}>#{post.show.name}</Link>
         </div>
+        <button className = "button2">Show Comments</button>
         </div>
       </div>
     ))
@@ -31,7 +32,10 @@ function FeedPage ({ posts, users }) {
     null
   }
 
-  return <div className ='user-feed-container'>{post}</div>
+  return <div className ='user-feed-container'>
+  <div className ='user-feed-container'>{post}</div>
+
+  </div>
 }
 
 export default FeedPage
