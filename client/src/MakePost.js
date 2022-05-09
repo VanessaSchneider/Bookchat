@@ -205,7 +205,7 @@ function MakePost ({ handleAddPost, makePostDisplay, setMakePostDisplay }) {
                 <input
                   className='post-size'
                   type='text'
-                  placeholder='Write your post'
+                  placeholder='     Write your post'
                   onChange={handlePost}
                   value={content}
                 />
@@ -214,11 +214,11 @@ function MakePost ({ handleAddPost, makePostDisplay, setMakePostDisplay }) {
                 </button>
               </form>
               <br></br>
-              <button onClick={showRating} className='post-size2'>
+              <button onClick={showRating} className='post-size5'>
                 {showStars ? "Don't Rate Book" : 'Rate the Book!'}{' '}
               </button>
               {showStars ? (
-                <div>
+                <div className='post-size6' >
                   <br></br>
                   <StarRating rating={rating} setRating={setRating} />
                 </div>
