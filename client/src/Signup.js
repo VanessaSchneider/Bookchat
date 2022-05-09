@@ -126,7 +126,7 @@ function Signup ({ login }) {
           className='btn btn-outline-light'
           onClick={() => setSignup(!signup)}
         >
-          Signup
+          Sign Up
         </button>
         {signup ? signupBox : null}
       </nav>
