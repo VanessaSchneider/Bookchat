@@ -65,6 +65,13 @@ button {
 
 }
 
+.comment-delete2
+{
+  margin-top: 1%;
+  margin-left: -1.5%;
+
+}
+
 .login {
   margin-top: 100%;
 }
@@ -75,6 +82,12 @@ button {
 
 .header2 {
   margin-left: -17%;
+}
+.header3 {
+  margin-left: -78%;
+}
+.header4 {
+  margin-left: -67%;
 }
 
 .below-nav {
@@ -102,8 +115,8 @@ button {
 
 .writepost {
   position: -webkit-sticky;
-  margin-left: 45%;
-  margin-top: -3%;
+  margin-left: 50%;
+  margin-top: -4%;
 }
 
 .username {
@@ -193,13 +206,13 @@ button {
 }
 
 .post-size3 {
-  margin-left: 36%;
+  margin-left: 41%;
 }
 
 .post-size4 {
   min-width: 40%;
   height: 78px;
-  margin-left: 11%;
+  margin-left: 12%;
 }
 
 .user-feed-container {

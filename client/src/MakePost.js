@@ -167,13 +167,12 @@ function MakePost ({ handleAddPost, makePostDisplay, setMakePostDisplay }) {
             <br></br>
             <br></br>
             <br></br>
-            <h4 className='header'>
-              {' '}
+            <h4 className='header3'>
               Search for the book you would like to post about
             </h4>
             <form onSubmit={handleSearch}>
               <input
-                className='search'
+                className='header4'
                 type='text'
                 placeholder='Book Name'
                 onChange={handleShow}

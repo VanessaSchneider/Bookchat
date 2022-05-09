@@ -43,7 +43,7 @@ function CommentForm ({
           <input
             className='post-size4'
             type='text'
-            placeholder='Write your comment'
+            placeholder='   Write your comment'
             onChange={handleComment}
             value={content}
           />
