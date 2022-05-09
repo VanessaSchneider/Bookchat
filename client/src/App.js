@@ -59,7 +59,6 @@ function App () {
     const updatedPosts = posts.filter(post => post.id !== id)
     setPosts(updatedPosts)
   }
-  
 
   useEffect(() => {
     fetch('/posts')
@@ -87,10 +86,9 @@ function App () {
       .then(() => handleReroute())
   }
 
-  function handleAddComment(comment) {
+  function handleAddComment (comment) {
     setComments([comment, ...comments])
   }
-
 
   function handleDeleteProfile () {
     fetch(`/users/${user.id}`, {
@@ -193,22 +191,19 @@ function App () {
             user={user}
             handleDeletePost={handleDeletePost}
             commentForm={commentForm}
-            setCommentForm= {setCommentForm}
-            handleAddComment ={handleAddComment}
-            comments = {comments}
-         
-         
+            setCommentForm={setCommentForm}
+            handleAddComment={handleAddComment}
+            comments={comments}
           />
         </Route>
         <Route exact path={`/comments/:id`}>
           <CommentPage
-          handleAddComment ={handleAddComment}
-          handleDeleteComment ={handleDeleteComment}
+            handleAddComment={handleAddComment}
+            handleDeleteComment={handleDeleteComment}
             user={user}
             comments={comments}
           />
         </Route>
-
       </Switch>
     </div>
   )

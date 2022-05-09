@@ -36,7 +36,7 @@ class ShowsController < ApplicationController
 
 
         def show_params
-            params.permit(:name)
+            params.permit(:name, :author, :photo)
         end
 
 

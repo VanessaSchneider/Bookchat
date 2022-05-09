@@ -11,7 +11,7 @@ class Rating < ApplicationRecord
         all_ratings = Rating.where(show_id:show_id)
         my_ratings = all_ratings.average(:rating).to_i
         show.update(rating: my_ratings)
-        end
+    end
     
 
 

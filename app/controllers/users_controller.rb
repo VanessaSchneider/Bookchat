@@ -18,27 +18,27 @@ class UsersController < ApplicationController
       def show
         user = User.find(params[:id])
         render json: user, status: :ok
-    end
+      end
 
 
       def create
           user = User.create(user_params)
-          if user.valid?
+        if user.valid?
             render json: user, status: :created
-          else
+        else
             render json: { errors: user.errors.full_messages }, status: :unprocessable_entity
-          end
         end
+      end
   
         def update
-          user = User.find_by!(id: params[:id])
-            user.update(user_params)
+              user = User.find_by!(id: params[:id])
+              user.update(user_params)
             if user.valid?
-            render json: user, status: :ok
+              render json: user, status: :ok
             else 
-            render json: { errors: user.errors.full_messages }, status: :unprocessable_entity
-            end
+              render json: { errors: user.errors.full_messages }, status: :unprocessable_entity
           end
+        end
   
       def destroy
           user = User.find(params[:id])
@@ -48,13 +48,13 @@ class UsersController < ApplicationController
 
 
       def getuser
-        user = User.find_by!(username: params[:username])
-          if user.valid?
+          user = User.find_by!(username: params[:username])
+        if user.valid?
           render json: user, status: :ok
-          else 
+        else 
           render json: { errors: show.errors.full_messages }, status: :unprocessable_entity
-          end
         end
+      end
 
   
       private

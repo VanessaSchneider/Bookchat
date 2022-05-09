@@ -2,16 +2,14 @@ import { useParams } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import { Link, useHistory } from 'react-router-dom'
 
-
-function CommentPage ({handleDeleteComment}) {
+function CommentPage ({ handleDeleteComment }) {
   const [user, setUser] = useState('')
-  const [comment, setComment] = useState("")
+  const [comment, setComment] = useState('')
   const history = useHistory()
   const { id } = useParams()
   const commentData = {
     id: id
   }
-
 
   useEffect(() => {
     fetch('/me').then(response => {
@@ -33,7 +31,6 @@ function CommentPage ({handleDeleteComment}) {
       .then(comment => setComment(comment))
   }, [])
 
- 
   function handleDelete () {
     fetch(`/comments/${comment.id}`, {
       method: 'DELETE'
@@ -43,7 +40,6 @@ function CommentPage ({handleDeleteComment}) {
 
     alert('You have deleted the comment')
   }
-
 
   const handleReroute = () => {
     console.log('Reroute!')
@@ -55,26 +51,25 @@ function CommentPage ({handleDeleteComment}) {
     handleReroute()
   }
 
-
-
   return (
     <div>
-      {comment ? 
+      {comment ? (
         <div>
-            <br></br>
-            <br></br>
-            <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
           <div className='post-container'>
             <Link to={`/users/${comment.username}`}>{comment.username}</Link>
           </div>
           <div className='post-container'>{comment.content}</div>
-    </div>: null}
-    {comment.username === user.username ? 
-            <button onClick={handleDelete} className='delete-post'>
-              Delete Comment
-            </button>
-           : null}
-
+        </div>
+      ) : null}
+      {comment.username === user.username ? (
+        <div className = "comment-delete">
+        <button onClick={handleDelete} className='delete-post'>
+          Delete Comment
+        </button> </div>
+      ) : null}
     </div>
   )
 }

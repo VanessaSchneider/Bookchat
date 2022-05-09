@@ -28,17 +28,15 @@ function UserPage () {
           <Link to={`/shows/${post.show_name}`}>#{post.show_name}</Link>
         </div>
         <div className='post-container-plus'>
-        <Link to={`/posts/${post.id}`}>
-          <button className = "button2"
-          >{post.content}</button>
-                </Link>
-          </div>
-          <div className="post-container">
-            <Link to={`/posts/${post.id}`}>
-              <button className="button2">See Comments</button>
-            </Link>
-          </div>
-       
+          <Link to={`/posts/${post.id}`}>
+            <button className='button2'>{post.content}</button>
+          </Link>
+        </div>
+        <div className='post-container'>
+          <Link to={`/posts/${post.id}`}>
+            <button className='button2'>See Comments</button>
+          </Link>
+        </div>
       </div>
     ))
   }

@@ -4,7 +4,13 @@ import { Link, useHistory } from 'react-router-dom'
 import CommentForm from './CommentForm'
 import CommentContainer from './CommentContainer'
 
-function TweetPage ({ handleDeletePost, setCommentForm, commentForm, comments, handleAddComment }) {
+function TweetPage ({
+  handleDeletePost,
+  setCommentForm,
+  commentForm,
+  comments,
+  handleAddComment
+}) {
   const [post, setPost] = useState('')
   const [user, setUser] = useState('')
   const history = useHistory()
@@ -37,12 +43,12 @@ function TweetPage ({ handleDeletePost, setCommentForm, commentForm, comments, h
       .then(post => setPost(post))
   }, [])
 
-
-
-
-  let filteredComments =[]
-  if (comments && comments.length !==0){
- filteredComments = comments.filter((comment)=>comment.post_id === parseInt(id))}
+  let filteredComments = []
+  if (comments && comments.length !== 0) {
+    filteredComments = comments.filter(
+      comment => comment.post_id === parseInt(id)
+    )
+  }
 
   function handleDelete () {
     fetch(`/posts/${post.id}`, {
@@ -65,7 +71,6 @@ function TweetPage ({ handleDeletePost, setCommentForm, commentForm, comments, h
     setPost(null)
     handleReroute()
   }
-
 
   return (
     <div>
@@ -101,14 +106,14 @@ function TweetPage ({ handleDeletePost, setCommentForm, commentForm, comments, h
                 commentForm={commentForm}
                 postData={postData}
                 user={user}
-                handleAddComment = {handleAddComment}
+                handleAddComment={handleAddComment}
               />{' '}
             </div>
           ) : null}
           {commentForm ? null : (
             <div>
               <h3 className='comments-headline'>Comments</h3>
-              <CommentContainer post={post} comments={filteredComments}  />
+              <CommentContainer post={post} comments={filteredComments} />
             </div>
           )}
         </div>

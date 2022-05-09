@@ -25,9 +25,9 @@ class CommentsController < ApplicationController
       def getcomment
         comment = Comment.find_by!(id: params[:id])
           if comment.valid?
-          render json: comment, status: :ok
+            render json: comment, status: :ok
           else 
-          render json: { errors: comment.errors.full_messages }, status: :unprocessable_entity
+            render json: { errors: comment.errors.full_messages }, status: :unprocessable_entity
           end
         end
 

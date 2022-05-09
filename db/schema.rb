@@ -68,6 +68,7 @@ ActiveRecord::Schema.define(version: 2022_05_05_184244) do
   create_table "shows", force: :cascade do |t|
     t.string "name"
     t.string "photo"
+    t.string "author"
     t.integer "rating"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
