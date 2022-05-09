@@ -3,10 +3,11 @@ import { useState, useEffect } from "react";
 import { Link, useHistory } from "react-router-dom";
 import CommentForm from './CommentForm'
 
-function CommentContainer({post}) {
+function CommentContainer({post, comments}) {
+  console.log("comments",comments)
     let comment = []
-if (post.comments)
-comment = post.comments.map((comment)=> <div className = "post-container"> 
+if (comments)
+comment = comments.map((comment)=> <div className = "post-container"> 
 <div className = "comment-format">
 <Link to={`/users/${comment.username}`}>{comment.username}
             </Link>

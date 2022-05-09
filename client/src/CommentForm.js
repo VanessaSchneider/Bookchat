@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 
-function CommentForm ({postData, user, commentForm, setCommentForm}) {
+function CommentForm ({postData, user, commentForm, setCommentForm, handleAddComment}) {
   const [content, setContent] = useState("")
 
   console.log(postData)
@@ -22,7 +22,7 @@ function handleSubmit(e){
     body: JSON.stringify(commentData)
   })
     .then(r => r.json())
-    .then(comment => (console.log("comment", comment)))
+    .then(comment => (handleAddComment(comment)))
 setCommentForm((commentForm)=>false)
   setContent("")
 
