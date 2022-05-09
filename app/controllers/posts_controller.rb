@@ -33,15 +33,11 @@ class PostsController < ApplicationController
           end
         end
 
-def getcomments
-  post = Post.find_by!(id: params[:id])
-  comments = Comment.where(post_id:post.id)
-  render json: comments, status: :ok
-end
-
-
-
-
+# def getcomments
+#   post = Post.find_by!(id: params[:id])
+#   comments = Comment.where(post_id:post.id)
+#   render json: comments, status: :ok
+# end
 
 
 
