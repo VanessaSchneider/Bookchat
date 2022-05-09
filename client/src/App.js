@@ -12,12 +12,14 @@ import ShowPage from './ShowPage'
 import Messages from './Messages'
 import Vote from './Vote'
 import TweetPage from './TweetPage'
+import CommentPage from './CommentPage'
 import photo from './photo.jpeg'
 
 function App () {
   const [user, setUser] = useState(null)
   const [posts, setPosts] = useState([])
   const [users, setUsers] = useState([])
+  const [comments, setComments] = useState([])
   const history = useHistory()
   const location = useLocation()
   const [makePostDisplay, setMakePostDisplay] = useState(false)
@@ -57,6 +59,7 @@ function App () {
     const updatedPosts = posts.filter(post => post.id !== id)
     setPosts(updatedPosts)
   }
+  
 
   useEffect(() => {
     fetch('/posts')
@@ -70,6 +73,12 @@ function App () {
       .then(data => setUsers(data))
   }, [])
 
+  useEffect(() => {
+    fetch('/comments')
+      .then(res => res.json())
+      .then(data => setComments(data))
+  }, [])
+
   function handleLogout () {
     fetch('/logout', {
       method: 'DELETE'
@@ -78,12 +87,22 @@ function App () {
       .then(() => handleReroute())
   }
 
+  function handleAddComment(comment) {
+    setComments([comment, ...comments])
+  }
+
+
   function handleDeleteProfile () {
     fetch(`/users/${user.id}`, {
       method: 'DELETE'
     })
       .then(() => setUser())
       .then(() => handleReroute())
+  }
+
+  function handleDeleteComment (id) {
+    const updatedComments = comments.filter(comment => comment.id !== id)
+    setComments(updatedComments)
   }
 
   return (
@@ -175,8 +194,21 @@ function App () {
             handleDeletePost={handleDeletePost}
             commentForm={commentForm}
             setCommentForm= {setCommentForm}
+            handleAddComment ={handleAddComment}
+            comments = {comments}
+         
+         
           />
         </Route>
+        <Route exact path={`/comments/:id`}>
+          <CommentPage
+          handleAddComment ={handleAddComment}
+          handleDeleteComment ={handleDeleteComment}
+            user={user}
+            comments={comments}
+          />
+        </Route>
+
       </Switch>
     </div>
   )

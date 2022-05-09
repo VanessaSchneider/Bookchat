@@ -13,6 +13,7 @@ Rails.application.routes.draw do
 post '/search' ,to: "shows#search"
 post '/getuser' ,to: "users#getuser"
 post '/getpost' => 'posts#getpost'
+post '/getcomment' => 'comments#getcomment'
 
 
 post "/addfriend", to: "friends#create"

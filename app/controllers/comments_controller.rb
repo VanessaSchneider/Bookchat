@@ -22,12 +22,14 @@ class CommentsController < ApplicationController
         end
       end
 
-      # def getcomments
-      #   comments = Comment.all
-      #   post_comments = comments.filter{|m|m.post_id == id}
-      #     render json: post_comments, status: :ok
-      #   end
-
+      def getcomment
+        comment = Comment.find_by!(id: params[:id])
+          if comment.valid?
+          render json: comment, status: :ok
+          else 
+          render json: { errors: comment.errors.full_messages }, status: :unprocessable_entity
+          end
+        end
 
         def comment_params
             params.permit(:post_id, :user_id, :content, :username)
