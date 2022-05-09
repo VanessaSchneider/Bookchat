@@ -105,7 +105,7 @@ function TweetPage ({ handleDeletePost, setCommentForm, commentForm }) {
           {commentForm ? (
             <div className='submit-forms'>
               {' '}
-              <br></br> <br></br> <br></br>{' '}
+              <br></br> <br></br>{' '}
               <CommentForm
                 setCommentForm={setCommentForm}
                 commentForm={commentForm}
